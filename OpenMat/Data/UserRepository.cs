@@ -42,5 +42,18 @@ namespace OpenMat.Data
 
             throw new Exception("No product created");
         }
+
+        public void DeleteUser(int ID)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var rowsAffected = db.Execute("Delete from Users where ID = @ID", new { ID });
+
+                if (rowsAffected != 1)
+                {
+                    throw new Exception("Issue with Users ID");
+                }
+            }
+        }
     }
 }
