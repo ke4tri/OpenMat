@@ -21,5 +21,37 @@ namespace OpenMat.Data
                 return Gym;
             }
         }
+
+        public CreateGymRequest AddGym(string Name, int Phone, string Affiliation)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var newUser = db.QueryFirstOrDefault<CreateGymRequest>(@"
+                    Insert into Gym (Name, Phone, Affiliation) 
+                    Output inserted.*
+                    Values(@Name,@Phone,@Affiliation)",
+                    new { Name, Phone, Affiliation }); // setting up the parameters required - property needs to match the values above
+
+                if (newUser != null)
+                {
+                    return newUser;
+                }
+            }
+
+            throw new Exception("No product created");
+        }
+
+        public void DeleteGym(int ID)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var rowsAffected = db.Execute("Delete from Gym where ID = @ID", new { ID });
+
+                if (rowsAffected != 1)
+                {
+                    throw new Exception("Issue with Gym ID");
+                }
+            }
+        }
     }
 }

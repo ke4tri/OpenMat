@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OpenMat.Data;
+using OpenMat.Models;
 
 namespace OpenMat.Controllers
 {
@@ -26,6 +27,24 @@ namespace OpenMat.Controllers
             var user = _gymRepository.GetAll();
 
             return Ok(user);
+        }
+
+        [HttpPost]
+
+        public ActionResult<int> AddGym(CreateGymRequest createRequest)
+        {
+            var newUser = _gymRepository.AddGym(createRequest.Name, createRequest.Phone, createRequest.Affiliation);
+
+            return Ok(newUser);
+        }
+
+        [HttpDelete("{ID}")]
+
+        public ActionResult DeleteGym(int ID)
+        {
+            _gymRepository.DeleteGym(ID);
+
+            return Ok();
         }
 
     }
