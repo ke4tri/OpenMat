@@ -23,5 +23,24 @@ namespace OpenMat.Data
                 return Users;
             }
         }
+
+        public CreateUserRequest AddUser(string FirstName,string LastName, string Rank, string Affiliation, bool Competitor)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var newUser = db.QueryFirstOrDefault<CreateUserRequest>(@"
+                    Insert into Users (FirstName, LastName, Rank, Affiliation, Competitor) 
+                    Output inserted.*
+                    Values(@FirstName,@LastName,@Rank,@Affiliation,@Competitor)",
+                    new { FirstName, LastName, Rank, Affiliation, Competitor }); // setting up the parameters required - property needs to match the values above
+
+                if (newUser != null)
+                {
+                    return newUser;
+                }
+            }
+
+            throw new Exception("No product created");
+        }
     }
 }

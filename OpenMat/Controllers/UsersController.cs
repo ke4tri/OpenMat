@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OpenMat.Data;
+using OpenMat.Models;
 
 namespace OpenMat.Controllers
 {
@@ -26,6 +27,15 @@ namespace OpenMat.Controllers
             var user = _userRepository.GetAll();
 
             return Ok(user);
+        }
+
+        [HttpPost]
+
+        public ActionResult<int> AddUser(CreateUserRequest createRequest)
+        {
+            var newUser = _userRepository.AddUser(createRequest.FirstName, createRequest.LastName, createRequest.Rank, createRequest.Affiliation, createRequest.Competitor);
+
+            return Ok(newUser);
         }
     }
 }
