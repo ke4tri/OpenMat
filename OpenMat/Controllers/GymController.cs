@@ -33,7 +33,7 @@ namespace OpenMat.Controllers
 
         public ActionResult<int> AddGym(CreateGymRequest createRequest)
         {
-            var newUser = _gymRepository.AddGym(createRequest.Name, createRequest.Phone, createRequest.Affiliation);
+            var newUser = _gymRepository.AddGym(createRequest.Name, createRequest.Phone, createRequest.Affiliation, createRequest.Address1, createRequest.Address2, createRequest.City, createRequest.State, createRequest.Zipcode, createRequest.lat, createRequest.lng);
 
             return Ok(newUser);
         }

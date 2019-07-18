@@ -8,7 +8,16 @@ namespace OpenMat.Models
     public class CreateGymRequest
     {
         public string Name { get; set; }
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         public string Affiliation { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zipcode { get; set; }
+        public float lat { get; set; }
+        public float lng { get; set; }
+        //public string Day { get; set; }
+        //public string Time { get; set; }
     }
 }
