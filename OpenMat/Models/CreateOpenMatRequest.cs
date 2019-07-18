@@ -9,5 +9,6 @@ namespace OpenMat.Models
     {
         public DateTime Date { get; set; }
         public int GymID { get; set; }
+        public string Phone { get; set; }
     }
 }

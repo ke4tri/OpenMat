@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace OpenMat.Models
 {
-    public class OpenMat
+    public class OpenMatt
     {
         public int ID { get; set; }
         public DateTime Date { get; set; }
