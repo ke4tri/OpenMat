@@ -22,15 +22,15 @@ namespace OpenMat.Data
             }
         }
 
-        public CreateGymRequest AddGym(string Name, int Phone, string Affiliation)
+        public CreateGymRequest AddGym(string Name, string Phone, string Affiliation, string Address1, string Address2, string City, string State, string Zipcode, float lat, float lng)
         {
             using (var db = new SqlConnection(ConnectionString))
             {
                 var newUser = db.QueryFirstOrDefault<CreateGymRequest>(@"
-                    Insert into Gym (Name, Phone, Affiliation) 
+                    Insert into Gym (Name, Phone, Affiliation, Address1, Address2, City, State, Zipcode, lat, lng) 
                     Output inserted.*
-                    Values(@Name,@Phone,@Affiliation)",
-                    new { Name, Phone, Affiliation }); // setting up the parameters required - property needs to match the values above
+                    Values(@Name,@Phone,@Affiliation,@Address1,@Address2,@City,@State,@Zipcode,@lat,@lng)",
+                    new { Name, Phone, Affiliation, Address1, Address2, City, State, Zipcode, lat, lng }); // setting up the parameters required - property needs to match the values above
 
                 if (newUser != null)
                 {
