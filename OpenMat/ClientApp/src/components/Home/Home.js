@@ -8,6 +8,7 @@ export class Home extends React.Component {
   render() {
     
     return (
+      <div className="divWrap homeImage">
       <div className="classLink ">
         
         <div className="homeLinks ">
@@ -20,6 +21,7 @@ export class Home extends React.Component {
           <h1>OPEN MAT</h1>
         </div> 
         
+       </div>
        </div>
     
     );
