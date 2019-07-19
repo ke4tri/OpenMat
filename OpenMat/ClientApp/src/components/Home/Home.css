@@ -8,7 +8,7 @@
 .classLink{
   display: flex;
   flex-direction: column;
-  margin-top: 25% !important;
+  /* margin-top: 25% !important; */
 }
 
 .homeImage{
@@ -24,6 +24,7 @@
 .homeLinks{
   display: flex;
   justify-content: space-around;
+  margin-top: 200% ;
 }
 
 
