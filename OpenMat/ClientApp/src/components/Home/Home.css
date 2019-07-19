@@ -1,3 +1,10 @@
+
+
+.divWrap{
+  display: flex;
+  justify-content: center;
+}
+
 .classLink{
   display: flex;
   flex-direction: column;
@@ -19,14 +26,5 @@
   justify-content: space-around;
 }
 
-.homeImage {
-  background-image: url("https://github.com/ke4tri/Images/blob/master/BJJ4.png?raw=true") !important;
-  z-index: 3 !important;
-  min-height: 770px !important; 
-  height:93.5vh !important;
-  margin-top: 0px !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  
-}
+
 

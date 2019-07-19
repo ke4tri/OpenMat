@@ -1,3 +1,29 @@
-.test{
-  margin-left: 300px;
+.aboutWrap{
+  display: flex;
+  justify-content: center;
+}
+
+.aboutLink{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1% !important;
+}
+
+.homeImageAbout{
+  background-image: url("https://github.com/ke4tri/Images/blob/master/Bjj3.jpg?raw=true") !important;
+  z-index: 3 !important;
+  min-height: 770px !important; 
+  height:93.5vh !important;
+  margin-top: 0px !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+.aboutLinks{
+  display: flex;
+  justify-content: space-around;
+}
+
+.aboutComp{
+  margin-top: 200%;
 }

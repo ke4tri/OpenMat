@@ -1,3 +1,32 @@
-.mapComp {
-  color: black;
+.mapWrap{
+  display: flex;
+  justify-content: center;
 }
+
+.mapLink{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1% !important;
+}
+
+.homeImageMap{
+  background-image: url("https://github.com/ke4tri/Images/blob/master/BJJ2.jpg?raw=true") !important;
+  z-index: 3 !important;
+  min-height: 770px !important; 
+  height:93.5vh !important;
+  margin-top: 0px !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+.mapHomeLinks{
+  display: flex;
+  justify-content: space-around;
+}
+
+.mapComp{
+  margin-top: 200%;
+}
+
+
+

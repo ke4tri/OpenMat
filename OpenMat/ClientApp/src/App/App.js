@@ -9,8 +9,6 @@ import {
 } from 'react-router-dom';
 import connection from '../helpers/data/connection';
 import authRequests from '../helpers/data/authRequests';
-// import customerRequests from '../helpers/data/customerRequests';
-// import MyNavbar from '../components/MyNavbar/MyNavbar';
 import { Home } from '../components/Home/Home';
 import MapComp from '../components/Map/MapComp';
 import About from '../components/About/About';
@@ -73,23 +71,6 @@ class App extends React.Component {
     this.setState({ authed: false });
   };
 
-  // getCurrentCustomer = () => {
-  //   const customerFromFb = authRequests.getCurrentUser();
-  //   const customerFbId = customerFromFb.uid;
-  //   customerRequests.getSingleCustomer(customerFbId).then((customer) => {
-  //     if (customer === undefined) {
-  //       this.setState({
-  //         customerObject: customerFromFb,
-  //       })
-  //     } else {
-  //       this.setState({
-  //         customerObject: customer,
-  //       });
-  //     }
-  //   });
-  // }
-
-
   render() {
     const { authed, pendingUser, customerObject } = this.state;
 
@@ -108,7 +89,6 @@ class App extends React.Component {
               <PublicRoute path='/home' component={Home} logoutClickEvent={this.logoutClickEvent} authed={authed} />
               <PublicRoute path='/map' component={MapComp} authed={authed}  />
               <PublicRoute path='/about' component={About} authed={authed}  />
-
               {/* <PrivateRoute path='/profile' component={CustomerProfile} authed={authed} logoutClickEvent={this.logoutClickEvent} customerObject={customerObject} updateCustomer={this.getCurrentCustomer} />
               <PrivateRoute path='/payments' component={Payment} authed={authed} customerObject={customerObject} updateCustomer={this.getCurrentCustomer} />
               <PrivateRoute path='/:orderId' component={OrderDetailsPage} authed={authed} logoutClickEvent={this.logoutClickEvent} /> */}
@@ -121,31 +101,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-// import React from 'react';
-// import { BrowserRouter as Router, Route } from "react-router-dom";
-// import { Home } from '../components/Home/Home';
-// import MapComp from '../components/Map/Map';
-// import About from '../components/About/About';
-// import './App.css';
-
-
-
-// class App extends React.Component {
-//   displayName = App.name
-
-//   render() {
-//     return (
-//       <Router>
-//       <div className="appCss">
-//         <Route exact path="/" component={Home} />
-//         <Route path="/about" component={About} />
-//         <Route path="/map" component={MapComp} />
-//       </div>
-//     </Router>
-//     );
-//   }
-// }
-
-// export default App;
