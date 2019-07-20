@@ -1,0 +1,104 @@
+{
+
+  "jsonGyms": [
+    {
+      "id": 10,
+      "name": "Collier BJJ",
+      "phone": "6156533339",
+      "affiliation": "zeinth",
+      "address1": "1000 walden creek trace",
+      "address2": "",
+      "city": "Spring Hill",
+      "state": "TN",
+      "zipcode": "37174",
+      "lat": 35.7447777,
+      "lng": -86.89344,
+      "date": "2019-08-12T10:00:00"
+    },
+    {
+      "id": 11,
+      "name": "Profectus",
+      "phone": "6159151330",
+      "affiliation": "Luiz Palhares",
+      "address1": "91 Seaboard Ln",
+      "address2": "#106",
+      "city": "Franklin",
+      "state": "TN",
+      "zipcode": "37027",
+      "lat": 35.95461,
+      "lng": -86.82607,
+      "date": "2019-08-13T06:00:00"
+    },
+    {
+      "id": 12,
+      "name": "Gracie Barra",
+      "phone": "6155051818",
+      "affiliation": "Gracie",
+      "address1": "2001 Campbell Station Pkwy",
+      "address2": "Ste B3",
+      "city": "Spring Hill",
+      "state": "TN",
+      "zipcode": "37174",
+      "lat": 35.77499,
+      "lng": -86.91305,
+      "date": "2019-08-14T12:00:00"
+    },
+    {
+      "id": 13,
+      "name": "Franklin BJJ Judo",
+      "phone": "6154478117",
+      "affiliation": "None",
+      "address1": "810 Del Rio Pike",
+      "address2": "",
+      "city": "Franklin",
+      "state": "TN",
+      "zipcode": "37064",
+      "lat": 35.93137,
+      "lng": -86.88322,
+      "date": "2019-08-15T03:00:00"
+    },
+    {
+      "id": 14,
+      "name": "Triangle Academy BJJ",
+      "phone": "6158704430",
+      "affiliation": "None",
+      "address1": "251 2nd Ave S",
+      "address2": "#102",
+      "city": "Franklin",
+      "state": "TN",
+      "zipcode": "37064",
+      "lat": 35.9231,
+      "lng": -86.86522,
+      "date": "2019-08-16T01:00:00"
+    },
+    {
+      "id": 15,
+      "name": "Artista BJJ",
+      "phone": "6153642847",
+      "affiliation": "None",
+      "address1": "4012 Hillsboro pike",
+      "address2": "#2a",
+      "city": "Nashville",
+      "state": "TN",
+      "zipcode": "37215",
+      "lat": 36.10338,
+      "lng": -86.8151,
+      "date": "2019-08-14T01:00:00"
+    },
+    {
+      "id": 16,
+      "name": "Nashville MMA",
+      "phone": "6152974430",
+      "affiliation": "None",
+      "address1": "711A Main St",
+      "address2": "",
+      "city": "Nashville",
+      "state": "Tn",
+      "zipcode": "37206",
+      "lat": 36.17477,
+      "lng": -86.76032,
+      "date": "2019-08-10T11:00:00"
+    }
+  ]
+        
+}
