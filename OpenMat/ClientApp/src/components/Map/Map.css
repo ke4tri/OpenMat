@@ -9,7 +9,7 @@
   margin-top: 1% !important;
 }
 
-.homeImageMap{
+/* .homeImageMap{
   background-image: url("https://github.com/ke4tri/Images/blob/master/BJJ2.jpg?raw=true") !important;
   z-index: 3 !important;
   min-height: 770px !important; 
@@ -17,7 +17,7 @@
   margin-top: 0px !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-}
+} */
 
 .mapHomeLinks{
   display: flex;

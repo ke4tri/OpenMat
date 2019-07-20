@@ -15,7 +15,6 @@ import About from '../components/About/About';
 import './App.css';
 
 
-
 const PublicRoute = ({ component: Component, authed, ...rest }) => {
   let routeChecker = props => (authed === false
     ? (<Component {...props} {...rest} />)
@@ -82,16 +81,12 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
           <React.Fragment>
-            {/* <MyNavbar authed={authed} logoutClickEvent={this.logoutClickEvent}  /> */}
             <Switch>
               {/* <PublicRoute path='/auth' component={Auth} authed={authed} /> */}
               <PublicRoute path='/' exact component={Home} authed={authed} />
               <PublicRoute path='/home' component={Home} logoutClickEvent={this.logoutClickEvent} authed={authed} />
               <PublicRoute path='/map' component={MapComp} authed={authed}  />
               <PublicRoute path='/about' component={About} authed={authed}  />
-              {/* <PrivateRoute path='/profile' component={CustomerProfile} authed={authed} logoutClickEvent={this.logoutClickEvent} customerObject={customerObject} updateCustomer={this.getCurrentCustomer} />
-              <PrivateRoute path='/payments' component={Payment} authed={authed} customerObject={customerObject} updateCustomer={this.getCurrentCustomer} />
-              <PrivateRoute path='/:orderId' component={OrderDetailsPage} authed={authed} logoutClickEvent={this.logoutClickEvent} /> */}
             </Switch>
           </React.Fragment>
         </BrowserRouter>

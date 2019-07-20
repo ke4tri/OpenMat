@@ -21,4 +21,7 @@ yarn-debug.log*
 yarn-error.log*
 
 /src/helpers/constants.js
+/srv/helpers/mapsApi.js
+mapsApi.js
+.env.local
 

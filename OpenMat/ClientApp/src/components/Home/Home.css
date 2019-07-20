@@ -1,5 +1,3 @@
-
-
 .divWrap{
   display: flex;
   justify-content: center;
@@ -21,11 +19,12 @@
   background-size: cover !important;
 }
 
-.homeLinks{
+.homeLinks {
   display: flex;
   justify-content: space-around;
   margin-top: 200% ;
 }
 
-
-
+.aTags{
+  text-decoration: none !important;
+}

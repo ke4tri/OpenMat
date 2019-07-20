@@ -1,0 +1,168 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import {
+  Col,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  Row,
+  Button,
+} from 'reactstrap';
+import util from '../../helpers/util';
+import './NewUserForm.scss';
+
+const defaultPayment = {
+  paymentName: '',
+  cardName: '',
+  acctNumber: '',
+  expDate: '',
+  CVV: '',
+  customerId: 0,
+  isActive: true,
+}
+
+class NewUserForm extends React.Component {
+  static propTypes = {
+    customerObject: PropTypes.object,
+    onSubmit: PropTypes.func,
+  }
+
+  state = {
+    newPayment: defaultPayment,
+  }
+
+  formFieldStringState = (name, e) => {
+    e.preventDefault();
+    const tempPayment = { ...this.state.newPayment };
+    tempPayment[name] = e.target.value;
+    this.setState({ newPayment: tempPayment });
+  }
+
+  formFieldNumberState = (name, e) => {
+    const tempPayment = { ...this.state.newPayment };
+    tempPayment[name] = e.target.value * 1;
+    this.setState({ newPayment: tempPayment });
+  }
+
+  formFieldDateState = (name, e) => {
+    const tempPayment = { ...this.state.newPayment };
+    tempPayment[name] = e.target.value;
+    this.setState({ newPayment: tempPayment });
+  }
+
+  cardNameChange = e => this.formFieldStringState('cardName', e);
+  paymentNameChange = e => this.formFieldStringState('paymentName', e);
+  cardNumberChange = e => this.formFieldNumberState('acctNumber', e);
+  expDateChange = e => this.formFieldDateState('expDate', e);
+  cvvChange = e => this.formFieldNumberState('CVV', e);
+
+  formSubmit = (e) => {
+    e.preventDefault();
+    const { customerObject, onSubmit } = this.props;
+    const newPayment = { ...this.state.newPayment };
+    newPayment.customerId = customerObject.customerId;
+    newPayment.expDate = util.formattedExpDate(newPayment.expDate);
+    onSubmit(newPayment);
+    this.setState({
+      newPayment: defaultPayment,
+    });
+  };
+
+  render() {
+    const { newPayment } = this.state;
+
+    return (
+      <div className='PaymentForm'>
+        <Form className='container' onSubmit={this.formSubmit}>
+          <Row>
+            <h4 className='form-title'>New Payment</h4>
+          </Row>
+          <Row form>
+            <Col md>
+              <FormGroup>
+                <Label for='cardName' size='sm' className='modal-label'>Card Name</Label>
+                <Input
+                  className='cool-border'
+                  type='text'
+                  name='cardName'
+                  placeholder="Maggie's Visa"
+                  id='cardName'
+                  onChange={this.cardNameChange}
+                  value={newPayment.cardName}
+                  required
+                />
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row form>
+            <Col md={2}>
+              <FormGroup>
+                <Label for='paymentName' size='sm' className='modal-label'>Payment Type</Label>
+                <Input type='select' id='paymentName' className='cool-border' name='paymentName' value={newPayment.paymentName} onChange={this.paymentNameChange}>
+                  <option value="" disabled className="text-hide">-Select-</option>
+                  <option value='Visa'>Visa</option>
+                  <option value='MasterCard'>MasterCard</option>
+                  <option value='American Express'>American Express</option>
+                  <option value='Discover'>Discover</option>
+                </Input>
+              </FormGroup>
+            </Col>
+            <Col md={5}>
+              <FormGroup>
+                <Label for='acctNumber' size='sm' className='modal-label'>Card Number</Label>
+                <Input
+                  className='cool-border'
+                  type='text'
+                  name='acctNumber'
+                  id='acctNumber'
+                  pattern='[0-9]*'
+                  minLength={16}
+                  maxLength={16}
+                  placeholder='1234123412341234'
+                  onChange={this.cardNumberChange}
+                  value={newPayment.acctNumber}
+                  required
+                />
+              </FormGroup>
+            </Col>
+            <Col md={3}>
+              <FormGroup>
+                <Label for='expDate' size='sm' className='modal-label'>Exp Date</Label>
+                <Input
+                  className='cool-border'
+                  name='expDate'
+                  id='expDate'
+                  pattern='[0-9]{2}/[0-9]{4}'
+                  placeholder='MM/YYYY'
+                  onChange={this.expDateChange}
+                  value={newPayment.expDate}
+                  required
+                />
+              </FormGroup>
+            </Col>
+            <Col md={2}>
+              <FormGroup>
+                <Label for='CVV' size='sm' className='modal-label'>CVV</Label>
+                <Input
+                  className='cool-border'
+                  type='text'
+                  name='CVV'
+                  id='CVV'
+                  placeholder='123'
+                  onChange={this.cvvChange}
+                  maxLength={4}
+                  value={newPayment.CVV}
+                  required
+                />
+              </FormGroup>
+            </Col>
+          </Row>
+          <Button color="secondary">Add Payment</Button>
+        </Form>
+      </div>
+    )
+  }
+}
+
+export default NewUserForm;
