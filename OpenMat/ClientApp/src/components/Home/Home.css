@@ -20,11 +20,30 @@
 }
 
 .homeLinks {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 200% ;
+  display: flex !important;
+  justify-content: space-around !important;
+  margin-top: 40% ;
 }
 
 .aTags{
   text-decoration: none !important;
+}
+
+.Nav_link:link{
+  color: #fff !important;
+  font-size: 1.6rem !important;
+  line-height: 1.6rem ! important;
+  text-decoration: none !important;
+}
+
+.homeH1{
+  text-align: center;
+}
+
+.test{
+  font-size: 200% !important;
+  margin-right: 20px !important;
+}
+.openMatText{
+  font-size: 150px !important;
 }

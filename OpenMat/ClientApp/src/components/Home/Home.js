@@ -12,13 +12,19 @@ export class Home extends React.Component {
       <div className="classLink ">
         
         <div className="homeLinks ">
-         <div className="homeLink aTags"><Link to="/">HOME</Link></div> 
-         <div className="homeLink aTags"><Link to="/about">ABOUT</Link></div> 
-         <div className="homeLink aTags"><Link to="/map">MAP</Link></div>
+          <div>
+            <Link to="/" className="test">HOME</Link>
+          </div>
+          <div>
+            <Link to="/about" className="test">ABOUT</Link>
+          </div>
+          <div>
+            <Link to="/map" className="test">MAP</Link>
+          </div>         
         </div>
 
         <div className="homeH1">
-          <h1>OPEN MAT</h1>
+          <div className="openMatText">OPEN MAT</div>
         </div> 
         
        </div>
