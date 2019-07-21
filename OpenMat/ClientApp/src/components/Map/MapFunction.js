@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GoogleMap, Marker } from "react-google-maps";
 import gymRequests from '../../helpers/data/gymRequests'
 
@@ -6,6 +6,7 @@ class MapFunction extends React.Component {
   state = {
     gyms: []
   }
+
 
  getGymJson = () => {
   gymRequests.getAllGyms()
@@ -30,7 +31,8 @@ class MapFunction extends React.Component {
         key={gym.id} 
         position={{
           lat: gym.lat, 
-          lng: gym.lng}} 
+          lng: gym.lng
+        }} 
         />
        ))}  
     </GoogleMap>

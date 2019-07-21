@@ -12,6 +12,7 @@ import authRequests from '../helpers/data/authRequests';
 import { Home } from '../components/Home/Home';
 import MapComp from '../components/Map/MapComp';
 import About from '../components/About/About';
+import GymForm from '../components/GymForm/GymForm';
 import './App.css';
 
 
@@ -87,6 +88,8 @@ class App extends React.Component {
               <PublicRoute path='/home' component={Home} logoutClickEvent={this.logoutClickEvent} authed={authed} />
               <PublicRoute path='/map' component={MapComp} authed={authed}  />
               <PublicRoute path='/about' component={About} authed={authed}  />
+              <PublicRoute path='/gymform' component={GymForm} authed={authed}  />
+
             </Switch>
           </React.Fragment>
         </BrowserRouter>
