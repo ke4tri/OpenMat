@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import './GymForm.css';
 
 
@@ -12,24 +13,77 @@ class GymForm extends React.Component {
   
       return (
         <div className=" d-flex wrapFormDiv card p-5 mx-auto">
-        <form className="form-inline">
+       <div class="contact-container">
 
-         <div>
-         <label className="sr-only" for="inlineFormInputName2">Name</label>
-         <input type="text" className="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Jane Doe" />
-         </div>
-         
-          
-          <div className="input-group mb-2 mr-sm-2">
-          <label className="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-            <input type="text" className="form-control" id="inlineFormInputGroupUsername2" placeholder="Username" />
-          </div>
-         
-         <div>
-           <button type="submit" className="btn btn-primary mb-2">Submit</button>
-         </div>
-        
-        </form>
+<form class="well form-horizontal" action=" " method="post"  id="contact_form">
+<fieldset>
+
+<legend><center><h2><b>Contact Information</b></h2></center></legend>
+
+<div class="form-group"> 
+<label class="col-md-4 control-label">Anonymity</label>
+    <div class="col-md-8 selectContainer">
+    <div class="input-group">
+        <span class="anon input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+    <select name="department" class="form-control selectpicker">
+    <option value="">Submit as anonymous?</option>
+    <option>Yes</option>
+    <option>No</option>
+    </select>
+</div>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-md-4 control-label">First Name</label>  
+<div class="col-md-8 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+<input  name="first_name" placeholder="First Name" class="form-control"  type="text" />
+    </div>
+</div>
+</div>
+
+{/* <!-- Text input--> */}
+
+<div class="form-group">
+<label class="col-md-4 control-label" >Last Name</label> 
+    <div class="col-md-8 inputGroupContainer">
+    <div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+<input name="last_name" placeholder="Last Name" class="form-control"  type="text" />
+    </div>
+</div>
+</div>    
+
+<div class="form-group">
+<label class="col-md-4 control-label">City</label>  
+<div class="col-md-8 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+<input  name="user_name" placeholder="City" class="form-control"  type="text" />
+    </div>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-md-4 control-label">State</label>  
+<div class="col-md-8 inputGroupContainer">
+<div class="input-group">
+<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+<input  name="user_name" placeholder="State" class="form-control"  type="text" />
+    </div>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-md-5 control-label"></label>
+<div class="col-md-4"><button type="submit" class="btn btn-warning" >Submit</button>
+</div>
+</div>
+</fieldset>
+</form>
+</div>
         </div>
       )
     }
