@@ -11,8 +11,8 @@ const defaultForm = {
   city: '',
   state:'',
   zipcode:'',
-  lat: '',
-  lng:'' 
+  lat: '34.888',
+  lng:'-67.999' 
 
 }
 
@@ -72,11 +72,11 @@ class GymForm extends React.Component {
    
   formSubmit = (e) => {
     e.preventDefault();
-    const { onSubmit } = this.props;
+    // const { onSubmit } = this.props;
     const newGym = { ...this.state.newGym };
     // newGym.customerId = customerObject.customerId;
     // newGym.expDate = util.formattedExpDate(newPayment.expDate);
-    onSubmit(newGym);
+    this.onSubmit(newGym);
     this.setState({
       newGym: defaultForm,
     });
