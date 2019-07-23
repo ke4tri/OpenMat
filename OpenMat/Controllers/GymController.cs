@@ -29,14 +29,24 @@ namespace OpenMat.Controllers
             return Ok(user);
         }
 
+        //[HttpPost]
+
+        //public ActionResult<int> AddGym(CreateGymRequest createRequest)
+        //{
+        //    var newUser = _gymRepository.AddGym(createRequest.Name, createRequest.Phone, createRequest.Affiliation, createRequest.Address1, createRequest.Address2, createRequest.City, createRequest.State, createRequest.Zipcode, createRequest.lat, createRequest.lng);
+
+        //    return Ok(newUser);
+        //}
+
         [HttpPost]
 
         public ActionResult<int> AddGym(CreateGymRequest createRequest)
         {
-            var newUser = _gymRepository.AddGym(createRequest.Name, createRequest.Phone, createRequest.Affiliation, createRequest.Address1, createRequest.Address2, createRequest.City, createRequest.State, createRequest.Zipcode, createRequest.lat, createRequest.lng);
+            var newGym = _gymRepository.AddGym(createRequest);
 
-            return Ok(newUser);
+            return Ok(newGym);
         }
+
 
         [HttpDelete("{ID}")]
 

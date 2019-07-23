@@ -22,24 +22,82 @@ namespace OpenMat.Data
             }
         }
 
-        public CreateGymRequest AddGym(string Name, string Phone, string Affiliation, string Address1, string Address2, string City, string State, string Zipcode, float lat, float lng)
+        //public CreateGymRequest AddGym(string Name, string Phone, string Affiliation, string Address1, string Address2, string City, string State, string Zipcode, float lat, float lng)
+        //{
+        //    using (var db = new SqlConnection(ConnectionString))
+        //    {
+        //        var newUser = db.QueryFirstOrDefault<CreateGymRequest>(@"
+        //            Insert into Gym (Name, Phone, Affiliation, Address1, Address2, City, State, Zipcode, lat, lng) 
+        //            Output inserted.*
+        //            Values(@Name,@Phone,@Affiliation,@Address1,@Address2,@City,@State,@Zipcode,@lat,@lng)",
+        //            new { Name, Phone, Affiliation, Address1, Address2, City, State, Zipcode, lat, lng }); // setting up the parameters required - property needs to match the values above
+
+        //        if (newUser != null)
+        //        {
+        //            return newUser;
+        //        }
+        //    }
+
+        //    throw new Exception("No product created");
+        //}
+
+
+        public CreateGymRequest AddGym(CreateGymRequest newGymObject)
         {
             using (var db = new SqlConnection(ConnectionString))
             {
-                var newUser = db.QueryFirstOrDefault<CreateGymRequest>(@"
-                    Insert into Gym (Name, Phone, Affiliation, Address1, Address2, City, State, Zipcode, lat, lng) 
-                    Output inserted.*
-                    Values(@Name,@Phone,@Affiliation,@Address1,@Address2,@City,@State,@Zipcode,@lat,@lng)",
-                    new { Name, Phone, Affiliation, Address1, Address2, City, State, Zipcode, lat, lng }); // setting up the parameters required - property needs to match the values above
+                var insertQuery = @"
+                    INSERT INTO Gym
+                               ([Name],
+                               [Phone],
+                               [Affiliation],
+                               [Address1],
+                               [Address2],
+                               [City],
+                               [State],
+                               [Zipcode],
+                               [lat],
+                               [lng])
+                    OUTPUT inserted.*
+                         VALUES
+                               (@name,
+                               @phone,
+                               @affiliation,
+                               @address1,
+                               @address2,
+                               @city,
+                               @state,
+                               @zipcode,
+                               @lat,
+                               @lng)";
 
-                if (newUser != null)
+                var parameters = new
                 {
-                    return newUser;
+                    Name = newGymObject.Name,
+                    Phone = newGymObject.Phone,
+                    Affiliation = newGymObject.Affiliation,
+                    Address1 = newGymObject.Address1,
+                    Address2 = newGymObject.Address2,
+                    City = newGymObject.City,
+                    State = newGymObject.State,
+                    Zipcode = newGymObject.Zipcode,
+                    lat = newGymObject.lat,
+                    lng = newGymObject.lng
+                };
+
+                var newGym = db.QueryFirstOrDefault<CreateGymRequest>(insertQuery, parameters);
+
+                if (newGym != null)
+                {
+                    return newGym;
                 }
             }
-
-            throw new Exception("No product created");
+            throw new Exception("Gym was not created");
         }
+
+
+
+
 
         public void DeleteGym(int ID)
         {

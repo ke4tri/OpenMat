@@ -1,6 +1,7 @@
 .wrapFormDiv{
-  max-width: 400px;
+  max-width: 600px;
   max-height: auto;
   margin-top: 200px;
 
 }
+#success_message{ display: none;}
