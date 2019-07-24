@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { GoogleMap, Marker, InfoWindow } from "react-google-maps";
-import gymRequests from '../../helpers/data/gymRequests'
+import { Link } from "react-router-dom";
+import gymRequests from '../../helpers/data/gymRequests';
+import mapStyles from '../../helpers/data/mapStyles';
 
 class MapFunction extends React.Component {
   state = {
@@ -25,6 +27,7 @@ class MapFunction extends React.Component {
     <GoogleMap 
       defaultZoom={8} 
       defaultCenter={{ lat: 36.180467, lng: -86.794887 }}
+      defaultOptions={{ styles: mapStyles }}
       >
       <React.Fragment>
       {this.state.gyms.map(gym => (
@@ -38,6 +41,10 @@ class MapFunction extends React.Component {
           this.setState({selectedGym: gym})
           
         }}
+        icon={{
+          url:"https://s3.amazonaws.com/zenplannerwordpress-stack0/wp-content/uploads/sites/287/2018/09/19095359/MLU-Home.png",
+          scaledSize: new window.google.maps.Size(50, 50)
+        }}
         />
        ))} 
         
@@ -49,12 +56,14 @@ class MapFunction extends React.Component {
         position={{ lat: this.state.selectedGym.lat, lng: this.state.selectedGym.lng }} >
          
           <React.Fragment>
-            <div><b>{this.state.selectedGym.name} </b></div>
-              <div><span><b>Phone: </b></span>{this.state.selectedGym.phone} </div>
-            <div>
+            <div><h2><b>{this.state.selectedGym.name} </b></h2></div>
+              <div><h4><span><b>Phone: </b></span>{this.state.selectedGym.phone}</h4> </div>
+            <div><h4>
             <span><b>Address: </b></span>
             {this.state.selectedGym.address1} {this.state.selectedGym.city}, {this.state.selectedGym.zipcode}
+         </h4>
           </div>
+          <div><Link to="/gymform">Attend</Link></div>
           </React.Fragment>
           
       </InfoWindow>
