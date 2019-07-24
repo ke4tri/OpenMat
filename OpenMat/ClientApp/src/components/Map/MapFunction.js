@@ -5,7 +5,6 @@ import gymRequests from '../../helpers/data/gymRequests'
 class MapFunction extends React.Component {
   state = {
     gyms: [],
-    // selectedGym:[] ,
     toggle: ''
   }
 
@@ -25,7 +24,7 @@ class MapFunction extends React.Component {
   return (
     <GoogleMap 
       defaultZoom={8} 
-      defaultCenter={{ lat: 35.517490, lng: -86.580444 }}
+      defaultCenter={{ lat: 36.180467, lng: -86.794887 }}
       >
       <React.Fragment>
       {this.state.gyms.map(gym => (
@@ -37,14 +36,27 @@ class MapFunction extends React.Component {
         }} 
         onClick={() => {
           this.setState({selectedGym: gym})
+          
         }}
         />
        ))} 
         
       {this.state.selectedGym && (
       <InfoWindow
+      onCloseClick={() => {
+        this.setState({selectedGym: null})
+      }}
         position={{ lat: this.state.selectedGym.lat, lng: this.state.selectedGym.lng }} >
-        <div>{this.state.selectedGym.name}</div>
+         
+          <React.Fragment>
+            <div><b>{this.state.selectedGym.name} </b></div>
+              <div><span><b>Phone: </b></span>{this.state.selectedGym.phone} </div>
+            <div>
+            <span><b>Address: </b></span>
+            {this.state.selectedGym.address1} {this.state.selectedGym.city}, {this.state.selectedGym.zipcode}
+          </div>
+          </React.Fragment>
+          
       </InfoWindow>
       )}
        </React.Fragment>

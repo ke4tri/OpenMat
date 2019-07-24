@@ -12,9 +12,9 @@ export class Home extends React.Component {
       <div className="classLink ">
         
         <div className="homeLinks ">
-          <div>
-            <Link to="/" className="test">HOME</Link>
-          </div>
+          {/* <div>
+            <Link to="/" className="test"></Link>
+          </div> */}
           <div>
             <Link to="/about" className="test">ABOUT</Link>
           </div>

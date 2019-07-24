@@ -13,19 +13,8 @@ const getAllGyms = () => new Promise((resolve, reject) => {
     });
 });
 
-//Factor to get openMats?
-const getPackageProducts = (pkg) => new Promise((resolve, reject) => {
-  axios.get(`${apiUrl}/${pkg}`)
-    .then((result) => {
-      const productObject = result.data;
-      resolve(productObject);
-    })
-    .catch((error) => {
-      reject(error);
-    });
-});
 
-const createGym = gymObject => axios.post('/api/gym', (gymObject));
+const createGym = gymObject => axios.post(`${apiUrl}`, (gymObject));
 
 // const createGym = gymObject => axios.post(`${apiUrl}/${gymId}`, (gymObject));
 // May need to change the gymId names below
@@ -33,7 +22,6 @@ const deleteGym = gymId => axios.delete(`${apiUrl}/${gymId}`);
 
 export default {
   getAllGyms,
-  getPackageProducts,
   deleteGym,
   createGym
 };
