@@ -1,5 +1,6 @@
 import React from 'react';
 import gymRequests from '../../helpers/data/gymRequests';
+import { Link } from "react-router-dom";
 import './GymForm.css';
 
 const defaultForm = {
@@ -11,12 +12,10 @@ const defaultForm = {
   city: '',
   state:'',
   zipcode:'',
-  lat: '34.888',
-  lng:'-67.999' 
+  lat: '',
+  lng:'' 
 
 }
-
-
 
 
 class GymForm extends React.Component {
@@ -62,20 +61,17 @@ class GymForm extends React.Component {
   latChange = e => this.formFieldNumberState('lat', e);
   lngChange = e => this.formFieldNumberState('lng', e);
 
-  // below 
   onSubmit = (newGym) => {
     console.log(newGym);
     gymRequests.createGym(newGym).then((result) => {
       console.log(result);
+      this.props.history.push('/map');
     }).catch(err => console.error('error creating payments for customer', err));
   }
    
   formSubmit = (e) => {
     e.preventDefault();
-    // const { onSubmit } = this.props;
     const newGym = { ...this.state.newGym };
-    // newGym.customerId = customerObject.customerId;
-    // newGym.expDate = util.formattedExpDate(newPayment.expDate);
     this.onSubmit(newGym);
     this.setState({
       newGym: defaultForm,
@@ -88,6 +84,12 @@ class GymForm extends React.Component {
 
       return (
         <div className=" d-flex wrapFormDiv card p-5 mx-auto">
+           <div>
+            <Link to="/about" className="test">ABOUT</Link>
+          </div>
+          <div>
+            <Link to="/home" className="test">HOME</Link>
+          </div>    
         <div className="contact-container">
            <form className="well form-horizontal" onSubmit={this.formSubmit} action=" " method="post"  id="contact_form">
               <fieldset>
@@ -102,7 +104,7 @@ class GymForm extends React.Component {
                        <div className="input-group">
                           <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
                           <input 
-                           name="first_name" 
+                           name="name" 
                            placeholder="Gym Name" 
                            className="form-control"  
                            type="text" 
@@ -120,8 +122,8 @@ class GymForm extends React.Component {
                        <div className="input-group">
                           <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
                           <input 
-                          name="last_name" 
-                          placeholder="Gym Owner" 
+                          name="phone" 
+                          placeholder="1234567890" 
                           className="form-control"  
                           type="text" 
                           onChange={this.phoneChange}
@@ -136,8 +138,8 @@ class GymForm extends React.Component {
                        <div className="input-group">
                           <span className="input-group-addon"><i className="glyphicon glyphicon-phone-alt"></i></span>
                           <input 
-                          name="last_name" 
-                          placeholder="Gym Phone" 
+                          name="affiliation" 
+                          placeholder="Affiliation" 
                           className="form-control"  
                           type="text" 
                           onChange={this.affiliationChange}
@@ -152,7 +154,7 @@ class GymForm extends React.Component {
                        <div className="input-group">
                           <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
                           <input 
-                          name="last_name" 
+                          name="address1" 
                           placeholder="Address 1" 
                           className="form-control"  
                           type="text" 
@@ -168,7 +170,7 @@ class GymForm extends React.Component {
                        <div className="input-group">
                           <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
                           <input 
-                          name="last_name" 
+                          name="Address 2" 
                           placeholder="Address 2" 
                           className="form-control"  
                           type="text" 
@@ -184,7 +186,7 @@ class GymForm extends React.Component {
                        <div className="input-group">
                           <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
                           <input 
-                          name="last_name" 
+                          name="city" 
                           placeholder="City" 
                           className="form-control"  
                           type="text" 
@@ -200,7 +202,7 @@ class GymForm extends React.Component {
                        <div className="input-group">
                           <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
                           <input 
-                          name="last_name" 
+                          name="state" 
                           placeholder="State" 
                           className="form-control"  
                           type="text" 
@@ -216,12 +218,44 @@ class GymForm extends React.Component {
                        <div className="input-group">
                           <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
                           <input 
-                          name="last_name" 
+                          name="zipcode" 
                           placeholder="Zipcode" 
                           className="form-control"  
                           type="text" 
                           onChange={this.zipcodeChange}
                           value={newGym.zipcode}
+                          />
+                       </div>
+                    </div>
+                 </div>
+                 <div className="form-group">
+                    <label className="col-md-4 control-label">Lat </label> 
+                    <div className="col-md-8 inputGroupContainer">
+                       <div className="input-group">
+                          <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
+                          <input 
+                          name="text" 
+                          placeholder="00.0000" 
+                          className="form-control"  
+                          type="float" 
+                          onChange={this.latChange}
+                          value={newGym.lat}
+                          />
+                       </div>
+                    </div>
+                 </div>
+                 <div className="form-group">
+                    <label className="col-md-4 control-label">Lng</label> 
+                    <div className="col-md-8 inputGroupContainer">
+                       <div className="input-group">
+                          <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
+                          <input 
+                          name="lat" 
+                          placeholder="-00.0000" 
+                          className="form-control"  
+                          type="text" 
+                          onChange={this.lngChange}
+                          value={newGym.lng}
                           />
                        </div>
                     </div>

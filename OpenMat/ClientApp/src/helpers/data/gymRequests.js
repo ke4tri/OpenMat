@@ -22,7 +22,6 @@ const deleteGym = gymId => axios.delete(`${apiUrl}/${gymId}`);
 
 export default {
   getAllGyms,
-
   deleteGym,
   createGym
 };

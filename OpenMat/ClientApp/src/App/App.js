@@ -11,7 +11,6 @@ import connection from '../helpers/data/connection';
 import authRequests from '../helpers/data/authRequests';
 import { Home } from '../components/Home/Home';
 import MapComp from '../components/Map/MapComp';
-//import MapApp from '../components/Map/MapFunctionNew';
 import About from '../components/About/About';
 import GymForm from '../components/GymForm/GymForm';
 import './App.css';
