@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import { Link } from "react-router-dom";
+import UserForm from '../../components/UserForm/UserForm';
 import gymRequests from '../../helpers/data/gymRequests';
 import mapStyles from '../../helpers/data/mapStyles';
 
 class MapFunction extends React.Component {
   state = {
     gyms: [],
-    toggle: ''
+    toggle: '',
+    passingGym: [],
   }
 
  getGymJson = () => {
@@ -63,7 +65,7 @@ class MapFunction extends React.Component {
             {this.state.selectedGym.address1} {this.state.selectedGym.city}, {this.state.selectedGym.zipcode}
          </h4>
           </div>
-          <div><Link to="/gymform">Attend</Link></div>
+          <div><Link to={{ pathname: '/userform', state: {passingGym : this.state.selectedGym}}}>Attend</Link></div>
           </React.Fragment>
           
       </InfoWindow>

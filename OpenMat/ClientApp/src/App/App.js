@@ -13,6 +13,7 @@ import { Home } from '../components/Home/Home';
 import MapComp from '../components/Map/MapComp';
 import About from '../components/About/About';
 import GymForm from '../components/GymForm/GymForm';
+import UserForm from '../components/UserForm/UserForm';
 import './App.css';
 
 
@@ -23,12 +24,13 @@ const PublicRoute = ({ component: Component, authed, ...rest }) => {
   return <Route {...rest} render={props => routeChecker(props)} />;
 };
 
-const PrivateRoute = ({ component: Component, authed, ...rest }) => {
-  let routeChecker = props => (authed === true
-    ? (<Component {...props} {...rest} />)
-    : (<Redirect to={{ pathname: '/auth', state: { from: props.location } }} />));
-  return <Route {...rest} render={props => routeChecker(props)} />;
-};
+//NO PRIVATEROUTES
+// const PrivateRoute = ({ component: Component, authed, ...rest }) => {
+//   let routeChecker = props => (authed === true
+//     ? (<Component {...props} {...rest} />)
+//     : (<Redirect to={{ pathname: '/auth', state: { from: props.location } }} />));
+//   return <Route {...rest} render={props => routeChecker(props)} />;
+// };
 
 class App extends React.Component {
   state = {
@@ -90,7 +92,7 @@ class App extends React.Component {
               {/* <PublicRoute path='/map' component={MapApp} authed={authed}  /> */}
               <PublicRoute path='/about' component={About} authed={authed}  />
               <PublicRoute path='/gymform' component={GymForm} authed={authed}  />
-
+              <PublicRoute path='/userform' component={UserForm} authed={authed} test={customerObject}  />
             </Switch>
           </React.Fragment>
         </BrowserRouter>
