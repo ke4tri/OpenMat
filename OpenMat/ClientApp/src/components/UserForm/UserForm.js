@@ -38,8 +38,8 @@ class UserForm extends React.Component {
   }
 
 
-  firstNameChange = e => this.formFieldStringState('firstname', e);
-  lastNameChange = e => this.formFieldStringState('lastname', e);
+  firstNameChange = e => this.formFieldStringState('firstName', e);
+  lastNameChange = e => this.formFieldStringState('lastName', e);
   rankChange = e => this.formFieldStringState('rank', e);
   affiliationChange = e => this.formFieldStringState('affiliation', e);
   competitorChange = e => this.formFieldStringState('competitor', e);
@@ -95,7 +95,7 @@ class UserForm extends React.Component {
                            className="form-control"  
                            type="text" 
                            onChange={this.firstNameChange} 
-                           value={newUser.firstname} 
+                           value={newUser.firstName} 
                            required 
                            />
                        </div>
@@ -113,7 +113,7 @@ class UserForm extends React.Component {
                           className="form-control"  
                           type="text" 
                           onChange={this.lastNameChange}
-                          value={newUser.lastname}
+                          value={newUser.lastName}
                           />
                        </div>
                     </div>
