@@ -1,6 +1,5 @@
-import React from 'react';
-import googleApi from "../../helpers/mapsApi"
-import MapFunction from '../../components/Map/MapFunction'
+import React from 'react';import MapFunction from '../../components/Map/MapFunction'
+import userRequests from '../../helpers/data/userRequests'
 import { Link } from "react-router-dom";
 import './UserForm.css';
 
@@ -10,7 +9,6 @@ const defaultForm = {
   lastName: '',
   rank: '',
   affiliation: '',
-  address2: '',
   competitor: '' 
 }
 
@@ -18,6 +16,54 @@ class UserForm extends React.Component {
   state = {
     newUser: defaultForm,
   }
+
+
+  formFieldStringState = (name, e) => {
+    e.preventDefault();
+    const tempUser = { ...this.state.newUser };
+    tempUser[name] = e.target.value;
+    this.setState({ newUser: tempUser });
+  }
+
+  // formFieldNumberState = (name, e) => {
+  //   const tempUser = { ...this.state.newUser };
+  //   tempUser[name] = e.target.value * 1;
+  //   this.setState({ newUser: tempUser });
+  // }
+
+  formFieldDateState = (name, e) => {
+    const tempUser = { ...this.state.newUser };
+    tempUser[name] = e.target.value;
+    this.setState({ newUser: tempUser });
+  }
+
+
+  firstNameChange = e => this.formFieldStringState('firstname', e);
+  lastNameChange = e => this.formFieldStringState('lastname', e);
+  rankChange = e => this.formFieldStringState('rank', e);
+  affiliationChange = e => this.formFieldStringState('affiliation', e);
+  competitorChange = e => this.formFieldStringState('competitor', e);
+  
+
+  onSubmit = (newUser) => {
+    console.log(newUser);
+    userRequests.createUser(newUser).then((result) => {
+      console.log(result);
+      this.props.history.push('/map');
+    }).catch(err => console.error('error creating user', err));
+  }
+   
+  formSubmit = (e) => {
+    e.preventDefault();
+    const newUser = { ...this.state.newUser };
+    this.onSubmit(newUser);
+    this.setState({
+      newUser: defaultForm,
+    });
+  };
+
+
+
 
   render() {
     const { newUser } = this.state;
@@ -39,17 +85,17 @@ class UserForm extends React.Component {
                     </center>
                  </legend>
                  <div className="form-group">
-                    <label className="col-md-4 control-label">FirstName</label>  
+                    <label className="col-md-2 control-label"></label>  
                     <div className="col-md-8 inputGroupContainer">
                        <div className="input-group">
                           <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
                           <input 
                            name="firstName" 
-                           placeholder="FirstName" 
+                           placeholder="First Name" 
                            className="form-control"  
                            type="text" 
                            onChange={this.firstNameChange} 
-                           value={newUser.firstName} 
+                           value={newUser.firstname} 
                            required 
                            />
                        </div>
@@ -57,23 +103,23 @@ class UserForm extends React.Component {
                  </div>
                  {/* <!-- Text input--> */}
                  <div className="form-group">
-                    <label className="col-md-4 control-label">LastName</label> 
+                    <label className="col-md-2 control-label"></label> 
                     <div className="col-md-8 inputGroupContainer">
                        <div className="input-group">
                           <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
                           <input 
                           name="lastName" 
-                          placeholder="1234567890" 
+                          placeholder="Last Name" 
                           className="form-control"  
                           type="text" 
                           onChange={this.lastNameChange}
-                          value={newUser.lastName}
+                          value={newUser.lastname}
                           />
                        </div>
                     </div>
                  </div>
                  <div className="form-group">
-                    <label className="col-md-4 control-label">Rank</label> 
+                    <label className="col-md-2 control-label"></label> 
                     <div className="col-md-8 inputGroupContainer">
                        <div className="input-group">
                           <span className="input-group-addon"><i className="glyphicon glyphicon-queen"></i></span>
@@ -89,7 +135,7 @@ class UserForm extends React.Component {
                     </div>
                  </div>
                  <div className="form-group">
-                    <label className="col-md-4 control-label">Affiliation</label> 
+                    <label className="col-md-2 control-label"></label> 
                     <div className="col-md-8 inputGroupContainer">
                        <div className="input-group">
                           <span className="input-group-addon"><i className="glyphicon glyphicon-tower"></i></span>
@@ -105,7 +151,7 @@ class UserForm extends React.Component {
                     </div>
                  </div>
                  <div className="form-group">
-                    <label className="col-md-4 control-label">Competitor</label> 
+                    <label className="col-md-2 control-label"></label> 
                     <div className="col-md-8 inputGroupContainer">
                        <div className="input-group">
                           <span className="input-group-addon"><i className="glyphicon glyphicon-knight"></i></span>
