@@ -66,7 +66,7 @@ class GymForm extends React.Component {
     gymRequests.createGym(newGym).then((result) => {
       console.log(result);
       this.props.history.push('/map');
-    }).catch(err => console.error('error creating payments for customer', err));
+    }).catch(err => console.error('error creating gym', err));
   }
    
   formSubmit = (e) => {

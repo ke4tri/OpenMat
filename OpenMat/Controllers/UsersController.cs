@@ -33,18 +33,18 @@ namespace OpenMat.Controllers
 
         public ActionResult<int> AddUser(CreateUserRequest createRequest)
         {
-            var newUser = _userRepository.AddUser(createRequest.FirstName, createRequest.LastName, createRequest.Rank, createRequest.Affiliation, createRequest.Competitor);
+            var newUser = _userRepository.AddUser(createRequest);
 
             return Ok(newUser);
         }
 
-        [HttpDelete("{ID}")]
+        //[HttpDelete("{ID}")]
 
-        public ActionResult DeleteUser(int ID)
-        {
-            _userRepository.DeleteUser(ID);
+        //public ActionResult DeleteUser(int ID)
+        //{
+        //    _userRepository.DeleteUser(ID);
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
     }
 }

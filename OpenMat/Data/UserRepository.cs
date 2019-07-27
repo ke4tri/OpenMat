@@ -24,24 +24,63 @@ namespace OpenMat.Data
             }
         }
 
-        public CreateUserRequest AddUser(string FirstName,string LastName, string Rank, string Affiliation, bool Competitor)
+        //public CreateUserRequest AddUser(string FirstName,string LastName, string Rank, string Affiliation, bool Competitor)
+        //{
+        //    using (var db = new SqlConnection(ConnectionString))
+        //    {
+        //        var newUser = db.QueryFirstOrDefault<CreateUserRequest>(@"
+        //            Insert into Users (FirstName, LastName, Rank, Affiliation, Competitor) 
+        //            Output inserted.*
+        //            Values(@FirstName,@LastName,@Rank,@Affiliation,@Competitor)",
+        //            new { FirstName, LastName, Rank, Affiliation, Competitor }); // setting up the parameters required - property needs to match the values above
+
+        //        if (newUser != null)
+        //        {
+        //            return newUser;
+        //        }
+        //    }
+
+        //    throw new Exception("No product created");
+        //}
+
+        public CreateUserRequest AddUser(CreateUserRequest newUserObject)
         {
             using (var db = new SqlConnection(ConnectionString))
             {
-                var newUser = db.QueryFirstOrDefault<CreateUserRequest>(@"
-                    Insert into Users (FirstName, LastName, Rank, Affiliation, Competitor) 
-                    Output inserted.*
-                    Values(@FirstName,@LastName,@Rank,@Affiliation,@Competitor)",
-                    new { FirstName, LastName, Rank, Affiliation, Competitor }); // setting up the parameters required - property needs to match the values above
+                var insertQuery = @"
+                    INSERT INTO Users
+                               ([FirstName],
+                               [LastName],
+                               [Rank],
+                               [Affiliation],
+                               [Competitor])
+                    OUTPUT inserted.*
+                         VALUES
+                               (@firstname,
+                               @lastname,
+                               @rank,
+                               @affiliation,
+                               @competitor)";
+
+                var parameters = new
+                {
+                    FirstName = newUserObject.FirstName,
+                    LastName = newUserObject.LastName,
+                    Rank = newUserObject.Rank,
+                    Affiliation = newUserObject.Affiliation,
+                    Competitor = newUserObject.Competitor
+                };
+
+                var newUser = db.QueryFirstOrDefault<CreateUserRequest>(insertQuery, parameters);
 
                 if (newUser != null)
                 {
                     return newUser;
                 }
             }
-
-            throw new Exception("No product created");
+            throw new Exception("User was not created");
         }
+
 
         public void DeleteUser(int ID)
         {
