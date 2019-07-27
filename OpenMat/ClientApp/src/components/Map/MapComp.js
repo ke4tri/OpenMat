@@ -18,7 +18,7 @@ class MapComp extends React.Component {
            <div className="mapHomeLink"><Link to="/about">ABOUT</Link></div> 
            <div className="mapHomeLink"><Link to="/gymform">ADD GYM</Link></div>         
           </div> 
-          <div className='' style={{width: '50vw', height: '50vh'}}>
+          <div className='' style={{width: '100vw', height: '100vh'}}>
             <WrappedMap googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${googleApi}`}
             loadingElement={<div style={{ height: "100%" }} />}
             containerElement={<div style={{ height: "100%" }} />}
