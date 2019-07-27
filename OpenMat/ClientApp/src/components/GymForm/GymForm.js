@@ -229,6 +229,10 @@ class GymForm extends React.Component {
                     </div>
                  </div>
                  <div className="form-group">
+                    <label className="col-md-5 control-label"></label>
+                    <div className="col-md-4"><a href="https://www.latlong.net/" target="_blank">Find lat lng</a></div>
+                 </div>
+                 <div className="form-group">
                     <label className="col-md-4 control-label">Lat </label> 
                     <div className="col-md-8 inputGroupContainer">
                        <div className="input-group">
