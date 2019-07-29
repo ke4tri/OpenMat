@@ -24,6 +24,8 @@ namespace OpenMat.Controllers
 
         public ActionResult GetAllProducts()
         {
+            //will check if there are any old openmats and then delete them
+            _gymRepository.DeleteOpenMat();
             var user = _gymRepository.GetAll();
 
             return Ok(user);
@@ -42,6 +44,7 @@ namespace OpenMat.Controllers
 
         public ActionResult<int> AddGym(CreateGymRequest createRequest)
         {
+            
             var newGym = _gymRepository.AddGym(createRequest);
 
             return Ok(newGym);
