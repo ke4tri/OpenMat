@@ -27,5 +27,22 @@ namespace OpenMat.Controllers
 
             return Ok(gyms);
         }
+
+        [HttpGet("{gymId}")]
+        public ActionResult UpdateIsActive(int gymId)
+        {
+           var gymOpenMat = _openMatRepository.GetSingleOpenMats(gymId);
+
+            return Ok(gymOpenMat);
+        }
+
+        //[HttpGet]
+
+        //public ActionResult GetSingleOpenMat()
+        //{
+        //    var gyms = _openMatRepository.GetSingleOpenMats();
+
+        //    return Ok(gyms);
+        //}
     }
 }

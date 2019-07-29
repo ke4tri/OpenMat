@@ -65,7 +65,9 @@ class MapFunction extends React.Component {
             {this.state.selectedGym.address1} {this.state.selectedGym.city}, {this.state.selectedGym.zipcode}
          </h4>
           </div>
-          <div><Link to={{ pathname: '/userform', state: {passingGym : this.state.selectedGym}}}>Attend</Link></div>
+          <div><Link to={{ pathname: '/userform', state: {passingGym : this.state.selectedGym}}}>Open Mats</Link></div>
+          
+          {/* <div><Link to={{ pathname: '/userform', state: {passingGym : this.state.selectedGym}}}>OpenMats</Link></div> */}
           </React.Fragment>
           
       </InfoWindow>

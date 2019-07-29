@@ -69,6 +69,8 @@ class UserForm extends React.Component {
     const { newUser } = this.state;
 
     return (
+       <div> 
+          <div>List of open mats here</div>
       <div className=" d-flex wrapFormDiv card p-5 mx-auto">
            <div>
             <Link to="/map" className="test">MAP</Link>
@@ -174,6 +176,7 @@ class UserForm extends React.Component {
               </fieldset>
            </form>
         </div>
+     </div>
      </div>
     );
   }

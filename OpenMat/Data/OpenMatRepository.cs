@@ -24,5 +24,21 @@ namespace OpenMat.Data
                 return Gym;
             }
         }
+
+        public IEnumerable<GetOpenMatRequest> GetSingleOpenMats(int gymId)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var getQuery = "select * from OpenMatt where GymID = @gymId";
+                var parameter = new { GymID = gymId };
+
+                var singleOpenMat = db.Query<GetOpenMatRequest>(getQuery, parameter).ToList();
+
+                //var Gym = db.Query<GetOpenMatRequest>
+                //    ("select * from OpenMatt where GymID = @gymId");
+                //return Gym;
+                return singleOpenMat;
+            }
+        }
     }
 }
