@@ -4,12 +4,14 @@ import openMatRequests from '../../helpers/data/openMatRequests';
 import SingleDate from '../../components/SingleDate/SingleDate';
 import { Link } from "react-router-dom";
 import './OpenMatts.css';
+import user2Requests from '../../helpers/data/user2Requests';
 
 class OpenMatts extends React.Component {
   state = {
     openMat: [],
     newOpenMats: [],
-    newUser: ''
+    newUser: '',
+    trigger: ''
   }
 
   formFieldStringState = (name, e) => {
@@ -31,11 +33,20 @@ class OpenMatts extends React.Component {
   affiliationChange = e => this.formFieldStringState('affiliation', e);
   competitorChange = e => this.formFieldStringState('competitor', e);
 
+  getOMUsers = () => {
+    const selectedGymId = this.props.location.state.passingGym.id;
+    user2Requests.getOMUsers(selectedGymId).then((result) => {
+      console.log(result);
+    }).catch(err => console.error('error creating user', err));
+  }
+
   onSubmit = (newUser) => {
     console.log(newUser);
     userRequests.createUser(newUser).then((result) => {
       console.log(result);
-      this.props.history.push('/map');
+      this.getOMUsers();
+      //Call function that displays people at this openmat
+      // this.props.history.push('/map');
     }).catch(err => console.error('error creating user', err));
   }
    
@@ -49,21 +60,26 @@ class OpenMatts extends React.Component {
 
   gymsOpenMats = () => {
     const gymid =  this.props.location.state.passingGym.id
+    
     openMatRequests(gymid)
     .then((data) => {
       this.setState({openMat:data});
-      console.log(this.state.openMat)
+      console.log(data)
     }).catch(err => console.error('error getting open mats', err));
   }
 
+  setTrigger = () => {
+
+  }
+
   componentWillMount() {
+    this.setTrigger();
     this.gymsOpenMats();
   }
 
   render() {
 
     const productBuilder = this.state.openMat.map((mat) => {
-      console.log(mat.date)
       return (
         <SingleDate
         date={mat.date}
@@ -71,11 +87,31 @@ class OpenMatts extends React.Component {
         openMatId={mat.id}
       />);
     });
+    
+    const opState = this.state.openMat;
+    if(opState && !opState.length) {
+      return (
+        <div>
+          <div><Link to="/home">HOME</Link></div>
+           <div><Link to="/map">MAP</Link></div>
+        <div>
+         No Open mats
+        </div>
+        <div>
+          <Link to="/addOpen">Add An Open Mat</Link>
+        </div>
+        </div>
+      )
+    }
 
     return (
        <div> 
+         <div><Link to="/home">HOME</Link></div>
+         <div><Link to="/map">MAP</Link></div>
+
           <div>{productBuilder} </div>
           {/* <div><Link to="/userform">Join Open Matt</Link></div> */}
+          
        </div>
     );
   }
