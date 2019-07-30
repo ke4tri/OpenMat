@@ -62,13 +62,13 @@ class OpenMatts extends React.Component {
 
   render() {
 
-
-
     const productBuilder = this.state.openMat.map((mat) => {
       console.log(mat.date)
       return (
         <SingleDate
         date={mat.date}
+        gymId={this.props.location.state.passingGym}
+        openMatId={mat.id}
       />);
     });
 

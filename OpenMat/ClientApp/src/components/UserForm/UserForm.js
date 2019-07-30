@@ -62,7 +62,9 @@ class UserForm extends React.Component {
     });
   };
 
+  gymsOpenMats = () => {
 
+  }
 
 
   render() {
