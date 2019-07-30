@@ -15,6 +15,9 @@ const defaultForm = {
 class UserForm extends React.Component {
   state = {
     newUser: defaultForm,
+    openMatDate: '',
+    selectedGymInfo: 0,
+    openMatId:0
   }
 
 
@@ -62,17 +65,26 @@ class UserForm extends React.Component {
     });
   };
 
-  gymsOpenMats = () => {
+  reSetState = () => {
+     const propState = this.props.location.state.combinedProps;
+     this.setState({openMatDate: propState[0]});
+     this.setState({selectedGymInfo: propState[1]});
+     this.setState({openMatId: propState[2]});
+     
+    };
+  
 
+  componentDidMount () {
+   this.reSetState();
   }
-
+ 
 
   render() {
     const { newUser } = this.state;
 
     return (
        <div> 
-          <div>List of open mats here</div>
+          {/* <div>List of open mats here</div> */}
       <div className=" d-flex wrapFormDiv card p-5 mx-auto">
            <div>
             <Link to="/map" className="test">MAP</Link>

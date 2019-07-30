@@ -75,7 +75,7 @@ class OpenMatts extends React.Component {
     return (
        <div> 
           <div>{productBuilder} </div>
-          <div><Link to="/userform">Join Open Matt</Link></div>
+          {/* <div><Link to="/userform">Join Open Matt</Link></div> */}
        </div>
     );
   }
