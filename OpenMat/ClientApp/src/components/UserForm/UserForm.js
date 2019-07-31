@@ -65,7 +65,9 @@ class UserForm extends React.Component {
   };
 
   getAttendingUsers = () => {
-   const gymid = this.props.location.state.combinedProps[2];
+     //Think gymid is actually the openmatId
+   const gymid = this.props.location.state.combinedProps[1].id;
+   // const gymid = this.state.selectedGymInfo.id
   user2Requests.getOMUsers(gymid)
   .then((data) => {
     this.setState({omUsers:data});
