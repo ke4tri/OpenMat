@@ -10,8 +10,7 @@ class OpenMatts extends React.Component {
   state = {
     openMat: [],
     newOpenMats: [],
-    newUser: '',
-    trigger: ''
+    newUser: ''
   }
 
   formFieldStringState = (name, e) => {
@@ -61,19 +60,15 @@ class OpenMatts extends React.Component {
   gymsOpenMats = () => {
     const gymid =  this.props.location.state.passingGym.id
     
-    openMatRequests(gymid)
+    openMatRequests.getSingleOpenMat(gymid)
     .then((data) => {
       this.setState({openMat:data});
       console.log(data)
     }).catch(err => console.error('error getting open mats', err));
   }
 
-  setTrigger = () => {
-
-  }
 
   componentWillMount() {
-    this.setTrigger();
     this.gymsOpenMats();
   }
 
@@ -98,7 +93,9 @@ class OpenMatts extends React.Component {
          No Open mats
         </div>
         <div>
-          <Link to="/addOpen">Add An Open Mat</Link>
+        <Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link>
+
+          {/* <Link to="/addOpenMat">Add An Open Mat</Link> */}
         </div>
         </div>
       )

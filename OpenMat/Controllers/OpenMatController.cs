@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OpenMat.Data;
+using OpenMat.Models;
 
 namespace OpenMat.Controllers
 {
@@ -34,6 +35,15 @@ namespace OpenMat.Controllers
            var gymOpenMat = _openMatRepository.GetSingleOpenMats(gymId);
 
             return Ok(gymOpenMat);
+        }
+
+        [HttpPost]
+
+        public ActionResult<int> AddOpenMat(CreateOpenMatRequest createRequest)
+        {
+            var newUser = _openMatRepository.AddOpenMat(createRequest);
+
+            return Ok(newUser);
         }
 
         //[HttpGet]

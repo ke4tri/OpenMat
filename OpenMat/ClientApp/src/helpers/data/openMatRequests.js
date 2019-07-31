@@ -11,4 +11,9 @@ const getSingleOpenMat = gymId => new Promise((resolve, reject) => {
     });
 });
 
-export default getSingleOpenMat;
+const createOpenMat = customerObject => axios.post(`${apiUrl}`, (customerObject));
+
+export default {
+  getSingleOpenMat,
+  createOpenMat
+};

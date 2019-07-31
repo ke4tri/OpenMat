@@ -30,12 +30,6 @@ class UserForm extends React.Component {
     this.setState({ newUser: tempUser });
   }
 
-  // formFieldNumberState = (name, e) => {
-  //   const tempUser = { ...this.state.newUser };
-  //   tempUser[name] = e.target.value * 1;
-  //   this.setState({ newUser: tempUser });
-  // }
-
   formFieldDateState = (name, e) => {
     const tempUser = { ...this.state.newUser };
     tempUser[name] = e.target.value;
@@ -48,14 +42,6 @@ class UserForm extends React.Component {
   affiliationChange = e => this.formFieldStringState('affiliation', e);
   competitorChange = e => this.formFieldStringState('competitor', e);
  
-
-//   onSubmit = (newUser) => {
-//     console.log(newUser);
-//     userRequests.createUser(newUser).then((result) => {
-//       console.log(result);
-//       this.props.history.push('/map');
-//     }).catch(err => console.error('error creating user', err));
-//   }
 
   onSubmit = (newUser) => {
    console.log(newUser);
