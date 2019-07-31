@@ -11,9 +11,19 @@ const getAllUsers = () => new Promise((resolve, reject) => {
   });
 });
 
+const getOMUsers = (gymid) => new Promise((resolve, reject) => {
+  axios.get(`${apiUrl}/${gymid}`).then((result) => {
+    const user = result.data;
+    resolve(user);
+  }).catch((error) => {
+    reject(error);
+  });
+});
+
 const createUser = customerObject => axios.post(`${apiUrl}`, (customerObject));
 
 export default {
   getAllUsers, 
-  createUser
+  createUser, 
+  getOMUsers
 }
