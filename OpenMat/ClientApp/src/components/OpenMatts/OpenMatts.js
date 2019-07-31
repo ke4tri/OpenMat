@@ -86,8 +86,38 @@ class OpenMatts extends React.Component {
     const opState = this.state.openMat;
     if(opState && !opState.length) {
       return (
-        <div className="openMat">
-          <div className="">
+        <div>
+<div id="container">
+    <div class="product-details">
+        <div className="butDiv">
+            <h1>Join Open Mat</h1>
+            <div>
+                <button className="btn mt-4 p-3">
+                    <Link to="/home">HOME</Link>
+                </button>
+            </div>
+            <div>
+                <button className="btn mt-4 p-3">
+                    <Link to="/map">MAP</Link>
+                </button>
+            </div>
+        </div>
+        <div class="control">
+            <button class="btn">
+                <span class="price">?</span>
+                <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"><Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link></i></span>
+                <span class="buy">Dont See an Open Mat?</span>
+            </button>
+        </div>
+    </div>
+    <div class="product-image">
+        <img src="https://github.com/ke4tri/Images/blob/master/Bjj3.jpg?raw=true" alt="Omar Dsoky" />
+        <div class="info">
+            <h2>NO OPEN MATS</h2>
+        </div>
+    </div>
+      </div>
+         {/* <div className="">
             <div className="">
                 <Link to="/home">
                 HOME</Link>
@@ -102,74 +132,50 @@ class OpenMatts extends React.Component {
           </div>
           <div className="">
             <Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link>
-            {/* 
-            <Link to="/addOpenMat">
-            Add An Open Mat</Link> */}
-          </div>
-        </div>
+       
+          </div> */}
+  </div>
+       
+        
       )
     }
 
     return (
 <div>
-     
-   <div id="container">	
-
-	<div class="product-details">
-	<div className="butDiv">
-	<h1>Join Open Mat</h1>
-
-
-		{/* <p class="information">" Especially good for container gardening, the Angelonia will keep blooming all summer even if old flowers are removed. Once tall enough to cut, bring them inside and you'll notice a light scent that some say is reminiscent of apples. "</p> */}
-	<div><button className="btn p-2"><Link to="/home">HOME</Link></button></div>	
-   <div><button className="btn p-2"><Link to="/map">MAP</Link></button></div>
-   <div><button className="btn p-2"><button type="button" class="btn btn-secondary"><Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link></button>
-   </button></div>
-  </div>
-<div class="control">
-	<button class="btn">
-	 <span class="price">49 $</span>
-   <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-   <span class="buy">Join Open Mat</span>
- </button>
-</div>
-			
-</div>
-
-	
-<div class="product-image">
-	
-	<img src="https://github.com/ke4tri/Images/blob/master/Bjj3.jpg?raw=true" alt="Omar Dsoky"/>
-	
-<div class="info">
-	<h2>The Description</h2>
-	<ul>
-    <li className="mt-2">{productBuilder}</li>
-		{/* <li><strong>Sun Needs: </strong>Full Sun</li>
-		<li><strong>Soil Needs: </strong>Damp</li>
-		<li><strong>Zones: </strong>9 - 11</li>
-		<li><strong>Height: </strong>2 - 3 feet</li>
-		<li><strong>Blooms in: </strong>Mid‑Summer - Mid‑Fall</li>
-		<li><strong>Features: </strong>Tolerates heat</li> */}
-	</ul>
-</div>
-</div>
-
-
-</div>
-   {/* <div className="openMat card mt-5">
-       <div>
-      <button type="button" class="btn btn-secondary"><Link to="/home">HOME</Link></button> 
-       </div>
-       <div>
-         <button type="button" class="btn btn-secondary"> <Link to="/map">MAP</Link></button>
+  <div id="container">
+      <div class="product-details">
+          <div className="butDiv">
+              <h1>Join Open Mat</h1>
+              <div>
+                  <button className="btn mt-4 p-3">
+                      <Link to="/home">HOME</Link>
+                  </button>
+              </div>
+              <div>
+                  <button className="btn mt-4 p-3">
+                      <Link to="/map">MAP</Link>
+                  </button>
+              </div>
+          </div>
+          <div class="control">
+              <button class="btn">
+                  <span class="price">?</span>
+                  <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"><Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link></i></span>
+                  <span class="buy">Dont See an Open Mat?</span>
+              </button>
+          </div>
       </div>
-    <div>
-       <button type="button" class="btn btn-secondary"><Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link></button>
-       </div>
-       <div>{productBuilder} </div>
-    </div> */}
+      <div class="product-image">
+          <img src="https://github.com/ke4tri/Images/blob/master/Bjj3.jpg?raw=true" alt="Omar Dsoky" />
+          <div class="info">
+              <h2>The Description</h2>
+              <ul>
+                  <li className="mt-2">{productBuilder}</li>
+              </ul>
+          </div>
+      </div>
   </div>
+</div>
     );
   }
 }
