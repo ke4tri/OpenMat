@@ -14,6 +14,8 @@ import MapComp from '../components/Map/MapComp';
 import About from '../components/About/About';
 import GymForm from '../components/GymForm/GymForm';
 import UserForm from '../components/UserForm/UserForm';
+import OpenMatts from '../components/OpenMatts/OpenMatts';
+import AddOpenMat from '../components/AddOpenMat/AddOpenMat';
 import './App.css';
 
 
@@ -85,14 +87,14 @@ class App extends React.Component {
         <BrowserRouter>
           <React.Fragment>
             <Switch>
-              {/* <PublicRoute path='/auth' component={Auth} authed={authed} /> */}
               <PublicRoute path='/' exact component={Home} authed={authed} />
               <PublicRoute path='/home' component={Home} logoutClickEvent={this.logoutClickEvent} authed={authed} />
               <PublicRoute path='/map' component={MapComp} authed={authed}  />
-              {/* <PublicRoute path='/map' component={MapApp} authed={authed}  /> */}
               <PublicRoute path='/about' component={About} authed={authed}  />
               <PublicRoute path='/gymform' component={GymForm} authed={authed}  />
-              <PublicRoute path='/userform' component={UserForm} authed={authed} test={customerObject}  />
+              <PublicRoute path='/userform' component={UserForm} authed={authed} />
+              <PublicRoute path='/openmatts' component={OpenMatts} authed={authed} />
+              <PublicRoute path='/addopenmat' component={AddOpenMat} authed={authed} />
             </Switch>
           </React.Fragment>
         </BrowserRouter>

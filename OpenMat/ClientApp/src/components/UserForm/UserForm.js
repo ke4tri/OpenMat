@@ -1,22 +1,27 @@
 import React from 'react';import MapFunction from '../../components/Map/MapFunction'
-import userRequests from '../../helpers/data/userRequests'
+import userRequests from '../../helpers/data/userRequests';
+import user2Requests from '../../helpers/data/user2Requests';
 import { Link } from "react-router-dom";
 import './UserForm.css';
-
 
 const defaultForm = {
   firstName: '',
   lastName: '',
   rank: '',
   affiliation: '',
-  competitor: '' 
+  competitor: '',
+  gymid: 0 ,
+  openmatid: 0
+
 }
 
 class UserForm extends React.Component {
   state = {
     newUser: defaultForm,
+    openMatDate: '',
+    selectedGymInfo: 0,
+    openMatId:0
   }
-
 
   formFieldStringState = (name, e) => {
     e.preventDefault();
@@ -25,50 +30,56 @@ class UserForm extends React.Component {
     this.setState({ newUser: tempUser });
   }
 
-  // formFieldNumberState = (name, e) => {
-  //   const tempUser = { ...this.state.newUser };
-  //   tempUser[name] = e.target.value * 1;
-  //   this.setState({ newUser: tempUser });
-  // }
-
   formFieldDateState = (name, e) => {
     const tempUser = { ...this.state.newUser };
     tempUser[name] = e.target.value;
     this.setState({ newUser: tempUser });
   }
 
-
   firstNameChange = e => this.formFieldStringState('firstName', e);
   lastNameChange = e => this.formFieldStringState('lastName', e);
   rankChange = e => this.formFieldStringState('rank', e);
   affiliationChange = e => this.formFieldStringState('affiliation', e);
   competitorChange = e => this.formFieldStringState('competitor', e);
-  
+ 
 
   onSubmit = (newUser) => {
-    console.log(newUser);
-    userRequests.createUser(newUser).then((result) => {
-      console.log(result);
-      this.props.history.push('/map');
-    }).catch(err => console.error('error creating user', err));
-  }
+   console.log(newUser);
+   user2Requests.createUser(newUser).then((result) => {
+     console.log(result);
+     this.props.history.push('/map');
+   }).catch(err => console.error('error creating user', err));
+ }
    
   formSubmit = (e) => {
     e.preventDefault();
     const newUser = { ...this.state.newUser };
+    newUser.gymid = this.state.selectedGymInfo.id
+    newUser.openmatid = this.state.openMatId
     this.onSubmit(newUser);
     this.setState({
       newUser: defaultForm,
     });
   };
 
-
-
+  reSetState = () => {
+     const propState = this.props.location.state.combinedProps;
+     this.setState({openMatDate: propState[0]});
+     this.setState({selectedGymInfo: propState[1]});
+     this.setState({openMatId: propState[2]});
+     
+    };
+  
+  componentDidMount () {
+   this.reSetState();
+  }
 
   render() {
     const { newUser } = this.state;
 
     return (
+       <div> 
+          {/* <div>List of open mats here</div> */}
       <div className=" d-flex wrapFormDiv card p-5 mx-auto">
            <div>
             <Link to="/map" className="test">MAP</Link>
@@ -174,6 +185,7 @@ class UserForm extends React.Component {
               </fieldset>
            </form>
         </div>
+     </div>
      </div>
     );
   }

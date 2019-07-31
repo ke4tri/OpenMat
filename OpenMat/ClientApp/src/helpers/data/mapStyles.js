@@ -2,47 +2,20 @@ export default
 
 [
     {
-        "featureType": "all",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "color": "#ffffff"
-            }
-        ]
-    },
-    {
-        "featureType": "all",
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "color": "#000000"
-            },
-            {
-                "lightness": 13
-            }
-        ]
-    },
-    {
         "featureType": "administrative",
-        "elementType": "geometry.fill",
+        "elementType": "all",
         "stylers": [
             {
-                "color": "#000000"
+                "saturation": "-100"
             }
         ]
     },
     {
-        "featureType": "administrative",
-        "elementType": "geometry.stroke",
+        "featureType": "administrative.province",
+        "elementType": "all",
         "stylers": [
             {
-                "color": "#531416"
-            },
-            {
-                "lightness": 14
-            },
-            {
-                "weight": 1.4
+                "visibility": "off"
             }
         ]
     },
@@ -51,24 +24,105 @@ export default
         "elementType": "all",
         "stylers": [
             {
-                "color": "#4b0808"
+                "saturation": -100
+            },
+            {
+                "lightness": 65
+            },
+            {
+                "visibility": "on"
             }
         ]
     },
     {
         "featureType": "poi",
-        "elementType": "geometry",
+        "elementType": "all",
         "stylers": [
             {
-                "color": "#520c0c"
+                "saturation": -100
             },
             {
-                "lightness": 5
+                "lightness": "50"
+            },
+            {
+                "visibility": "simplified"
             }
         ]
     },
     {
-        "featureType": "road.highway",
+        "featureType": "poi.attraction",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.business",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.government",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.medical",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.place_of_worship",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.school",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": "-100"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
         "elementType": "geometry.fill",
         "stylers": [
             {
@@ -77,44 +131,56 @@ export default
         ]
     },
     {
+        "featureType": "road",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
         "featureType": "road.highway",
-        "elementType": "geometry.stroke",
+        "elementType": "all",
         "stylers": [
             {
-                "color": "#4f0b0b"
-            },
-            {
-                "lightness": 25
+                "visibility": "simplified"
             }
         ]
     },
     {
         "featureType": "road.arterial",
-        "elementType": "geometry.fill",
+        "elementType": "all",
         "stylers": [
             {
-                "color": "#000000"
-            }
-        ]
-    },
-    {
-        "featureType": "road.arterial",
-        "elementType": "geometry.stroke",
-        "stylers": [
-            {
-                "color": "#0b3d51"
-            },
-            {
-                "lightness": 16
+                "lightness": "30"
             }
         ]
     },
     {
         "featureType": "road.local",
-        "elementType": "geometry",
+        "elementType": "all",
         "stylers": [
             {
-                "color": "#000000"
+                "lightness": "40"
             }
         ]
     },
@@ -123,16 +189,37 @@ export default
         "elementType": "all",
         "stylers": [
             {
-                "color": "#146474"
+                "saturation": -100
+            },
+            {
+                "visibility": "simplified"
             }
         ]
     },
     {
         "featureType": "water",
-        "elementType": "all",
+        "elementType": "geometry",
         "stylers": [
             {
-                "color": "#021019"
+                "hue": "#ffff00"
+            },
+            {
+                "lightness": -25
+            },
+            {
+                "saturation": -97
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "lightness": -25
+            },
+            {
+                "saturation": -100
             }
         ]
     }

@@ -24,5 +24,69 @@ namespace OpenMat.Data
                 return Gym;
             }
         }
+
+        public IEnumerable<GetOpenMatRequest> GetSingleOpenMats(int gymId)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var getQuery = "select * from OpenMatt where GymID = @gymId";
+                var parameter = new { GymID = gymId };
+
+                var singleOpenMat = db.Query<GetOpenMatRequest>(getQuery, parameter).ToList();
+
+                //var Gym = db.Query<GetOpenMatRequest>
+                //    ("select * from OpenMatt where GymID = @gymId");
+                //return Gym;
+                return singleOpenMat;
+            }
+        }
+
+        public CreateOpenMatRequest AddOpenMat(CreateOpenMatRequest newUserObject)
+        {
+            using (var db = new SqlConnection(ConnectionString))
+            {
+                var insertQuery = @"
+                    INSERT INTO OpenMatt
+                               ([Date],
+                               [GymID])
+                    OUTPUT inserted.*
+                         VALUES
+                               (@date,
+                               @gymid)";
+
+                var parameters = new
+                {
+                    Date = newUserObject.Date,
+                    GymID = newUserObject.GymID
+                };
+
+                var newOpenMat = db.QueryFirstOrDefault<CreateOpenMatRequest>(insertQuery, parameters);
+
+                if (newOpenMat != null)
+                {
+                    return newOpenMat;
+                }
+            }
+            throw new Exception("OpenMat was not created");
+        }
+
+
+
+        //public IEnumerable<GetOpenMatRequest> GetSingleOpenMats(int gymId)
+        //{
+        //    using (var db = new SqlConnection(ConnectionString))
+        //    {
+        //        var getQuery = "select * from OpenMatt where GymID = @gymId";
+        //        var parameter = new { GymID = gymId };
+
+        //        var singleOpenMat = db.Query<GetOpenMatRequest>(getQuery, parameter).ToList();
+
+        //        //var Gym = db.Query<GetOpenMatRequest>
+        //        //    ("select * from OpenMatt where GymID = @gymId");
+        //        //return Gym;
+        //        return singleOpenMat;
+        //    }
+        //}
+
     }
 }
