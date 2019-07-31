@@ -45,7 +45,7 @@ class OpenMatts extends React.Component {
       console.log(result);
       this.getOMUsers();
       //Call function that displays people at this openmat
-      // this.props.history.push('/map');
+      //this.props.history.push('/map');
     }).catch(err => console.error('error creating user', err));
   }
    
@@ -86,30 +86,90 @@ class OpenMatts extends React.Component {
     const opState = this.state.openMat;
     if(opState && !opState.length) {
       return (
-        <div>
-          <div><Link to="/home">HOME</Link></div>
-           <div><Link to="/map">MAP</Link></div>
-        <div>
-         No Open mats
-        </div>
-        <div>
-        <Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link>
-
-          {/* <Link to="/addOpenMat">Add An Open Mat</Link> */}
-        </div>
+        <div className="openMat">
+          <div className="">
+            <div className="">
+                <Link to="/home">
+                HOME</Link>
+            </div>
+            <div className="">
+                <Link to="/map">
+                MAP</Link>
+            </div>
+          </div>
+          <div className="">
+            No Open mats
+          </div>
+          <div className="">
+            <Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link>
+            {/* 
+            <Link to="/addOpenMat">
+            Add An Open Mat</Link> */}
+          </div>
         </div>
       )
     }
 
     return (
-       <div> 
-         <div><Link to="/home">HOME</Link></div>
-         <div><Link to="/map">MAP</Link></div>
+<div>
+     
+   <div id="container">	
 
-          <div>{productBuilder} </div>
-          {/* <div><Link to="/userform">Join Open Matt</Link></div> */}
-          
+	<div class="product-details">
+	<div className="butDiv">
+	<h1>Join Open Mat</h1>
+
+
+		{/* <p class="information">" Especially good for container gardening, the Angelonia will keep blooming all summer even if old flowers are removed. Once tall enough to cut, bring them inside and you'll notice a light scent that some say is reminiscent of apples. "</p> */}
+	<div><button className="btn p-2"><Link to="/home">HOME</Link></button></div>	
+   <div><button className="btn p-2"><Link to="/map">MAP</Link></button></div>
+   <div><button className="btn p-2"><button type="button" class="btn btn-secondary"><Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link></button>
+   </button></div>
+  </div>
+<div class="control">
+	<button class="btn">
+	 <span class="price">49 $</span>
+   <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+   <span class="buy">Join Open Mat</span>
+ </button>
+</div>
+			
+</div>
+
+	
+<div class="product-image">
+	
+	<img src="https://github.com/ke4tri/Images/blob/master/Bjj3.jpg?raw=true" alt="Omar Dsoky"/>
+	
+<div class="info">
+	<h2>The Description</h2>
+	<ul>
+    <li className="mt-2">{productBuilder}</li>
+		{/* <li><strong>Sun Needs: </strong>Full Sun</li>
+		<li><strong>Soil Needs: </strong>Damp</li>
+		<li><strong>Zones: </strong>9 - 11</li>
+		<li><strong>Height: </strong>2 - 3 feet</li>
+		<li><strong>Blooms in: </strong>Mid‑Summer - Mid‑Fall</li>
+		<li><strong>Features: </strong>Tolerates heat</li> */}
+	</ul>
+</div>
+</div>
+
+
+</div>
+   {/* <div className="openMat card mt-5">
+       <div>
+      <button type="button" class="btn btn-secondary"><Link to="/home">HOME</Link></button> 
        </div>
+       <div>
+         <button type="button" class="btn btn-secondary"> <Link to="/map">MAP</Link></button>
+      </div>
+    <div>
+       <button type="button" class="btn btn-secondary"><Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link></button>
+       </div>
+       <div>{productBuilder} </div>
+    </div> */}
+  </div>
     );
   }
 }

@@ -32,7 +32,7 @@ class AddOpenMat extends React.Component {
       console.log(result);
       // this.getOMUsers();
       //Call function that displays people ON TOP openmat
-      // this.props.history.push('/map');
+      this.props.history.push('/map');
     }).catch(err => console.error('error creating user', err));
   }
 
