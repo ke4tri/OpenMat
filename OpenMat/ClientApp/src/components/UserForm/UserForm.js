@@ -1,6 +1,7 @@
 import React from 'react';import MapFunction from '../../components/Map/MapFunction'
-import userRequests from '../../helpers/data/userRequests';
+//import openMatRequests from '../../helpers/data/openMatRequests';
 import user2Requests from '../../helpers/data/user2Requests';
+import AttendingUsers from '../AttendingUsers/AttendingUsers';
 import { Link } from "react-router-dom";
 import './UserForm.css';
 
@@ -20,7 +21,8 @@ class UserForm extends React.Component {
     newUser: defaultForm,
     openMatDate: '',
     selectedGymInfo: 0,
-    openMatId:0
+    openMatId:0,
+    omUsers:[]
   }
 
   formFieldStringState = (name, e) => {
@@ -62,24 +64,54 @@ class UserForm extends React.Component {
     });
   };
 
+  getAttendingUsers = () => {
+     //Think gymid is actually the openmatId
+   const gymid = this.props.location.state.combinedProps[1].id;
+   // const gymid = this.state.selectedGymInfo.id
+  user2Requests.getOMUsers(gymid)
+  .then((data) => {
+    this.setState({omUsers:data});
+    console.log(data)
+  }).catch(err => console.error('error getting attending users', err));
+
+}
+
+
   reSetState = () => {
      const propState = this.props.location.state.combinedProps;
      this.setState({openMatDate: propState[0]});
      this.setState({selectedGymInfo: propState[1]});
      this.setState({openMatId: propState[2]});
+   //   this.getAttendingUsers();
      
     };
+
   
+  componentWillMount () {
+   this.getAttendingUsers();
+  }
+
   componentDidMount () {
    this.reSetState();
   }
 
   render() {
-    const { newUser } = this.state;
+    const { newUser, omUsers } = this.state;
+  
+    const attendingBuilder = omUsers.map((user) => {
+      return (
+        <AttendingUsers
+        firstName={user.firstName}
+        lastName={user.lastName}
+        rank={user.rank}
+        affiliation={user.affiliation}
+      />);
+    });
 
     return (
        <div> 
-          {/* <div>List of open mats here</div> */}
+          <div>Attending this Open Mat</div>
+          <div>{attendingBuilder}</div>
       <div className=" d-flex wrapFormDiv card p-5 mx-auto">
            <div>
             <Link to="/map" className="test">MAP</Link>
