@@ -14,7 +14,7 @@ class AttendingUsers extends React.Component{
     render(){
       return(
         <div>
-          <div>{this.props.FirstName}</div>
+          <div>{this.props.firstName}</div>
         </div>
       );
     }

@@ -21,7 +21,8 @@ class UserForm extends React.Component {
     newUser: defaultForm,
     openMatDate: '',
     selectedGymInfo: 0,
-    openMatId:0
+    openMatId:0,
+    omUsers:[]
   }
 
   formFieldStringState = (name, e) => {
@@ -64,7 +65,6 @@ class UserForm extends React.Component {
   };
 
   getAttendingUsers = () => {
-   // const gymid = this.state.selectedGymInfo.id
    const gymid = this.props.location.state.combinedProps[2];
   user2Requests.getOMUsers(gymid)
   .then((data) => {
@@ -85,34 +85,31 @@ class UserForm extends React.Component {
     };
 
   
-//   componentWillMount () {
-//    this.getAttendingUsers();
-//   }
+  componentWillMount () {
+   this.getAttendingUsers();
+  }
 
   componentDidMount () {
    this.reSetState();
-   this.getAttendingUsers();
-
-   
   }
 
   render() {
-    const { newUser } = this.state;
-
-   //  const attendingBuilder = this.state.omUsers.map((user) => {
-   //    return (
-   //      <AttendingUsers
-   //      firstName={user.FirstName}
-   //      lastName={user.LastName}
-   //      rank={user.Rank}
-   //      affiliation={user.Affiliation}
-   //    />);
-   //  });
+    const { newUser, omUsers } = this.state;
+  
+    const attendingBuilder = omUsers.map((user) => {
+      return (
+        <AttendingUsers
+        firstName={user.firstName}
+        lastName={user.lastName}
+        rank={user.rank}
+        affiliation={user.affiliation}
+      />);
+    });
 
     return (
        <div> 
           <div>Attending this Open Mat</div>
-          {/* <div>{attendingBuilder}</div> */}
+          <div>{attendingBuilder}</div>
       <div className=" d-flex wrapFormDiv card p-5 mx-auto">
            <div>
             <Link to="/map" className="test">MAP</Link>
