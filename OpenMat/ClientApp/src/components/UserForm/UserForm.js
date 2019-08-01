@@ -110,9 +110,28 @@ class UserForm extends React.Component {
 
     return (
        <div> 
-          <div>Attending this Open Mat</div>
-          <div>{attendingBuilder}</div>
-      <div className=" d-flex wrapFormDiv card p-5 mx-auto">
+         {/* /////////table below//////// */}
+<div className="well form-horizontal tableDiv mx-auto">
+         <table class="table table-striped table-dark">
+            <thead>
+              <tr>
+                  <th scope="col">ATTENDING</th>
+               </tr>
+               <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Belt</th>
+                  <th scope="col">Affiliation</th>
+               </tr>
+            </thead>
+            <tbody>
+            {attendingBuilder}
+            </tbody>
+         </table>
+         </div>
+         {/* /////////table above//////// */}
+      <div className=" d-flex userFormDiv card p-5 mx-auto">
            <div>
             <Link to="/map" className="test">MAP</Link>
           </div>
