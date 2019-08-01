@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import { Link } from "react-router-dom";
-import UserForm from '../../components/UserForm/UserForm';
 import gymRequests from '../../helpers/data/gymRequests';
 import mapStyles from '../../helpers/data/mapStyles';
 
@@ -41,7 +40,6 @@ class MapFunction extends React.Component {
         }} 
         onClick={() => {
           this.setState({selectedGym: gym})
-          
         }}
         icon={{
           url:"https://s3.amazonaws.com/zenplannerwordpress-stack0/wp-content/uploads/sites/287/2018/09/19095359/MLU-Home.png",

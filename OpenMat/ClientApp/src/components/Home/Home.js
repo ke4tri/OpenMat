@@ -2,15 +2,12 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import "./Home.css";
 
-
 export class Home extends React.Component {
 
   render() {
-    
     return (
       <div className="divWrap homeImage">
       <div className="classLink ">
-        
         <div className="homeLinks ">
           {/* <div>
             <Link to="/" className="test"></Link>
@@ -26,10 +23,8 @@ export class Home extends React.Component {
         <div className="homeH1">
           <div className="openMatText">OPEN MAT</div>
         </div> 
-        
        </div>
        </div>
-    
     );
   }
 }

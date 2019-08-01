@@ -35,17 +35,12 @@ class OpenMatts extends React.Component {
   getOMUsers = () => {
     const selectedGymId = this.props.location.state.passingGym.id;
     user2Requests.getOMUsers(selectedGymId).then((result) => {
-      console.log(result);
     }).catch(err => console.error('error creating user', err));
   }
 
   onSubmit = (newUser) => {
-    console.log(newUser);
     userRequests.createUser(newUser).then((result) => {
-      console.log(result);
       this.getOMUsers();
-      //Call function that displays people at this openmat
-      //this.props.history.push('/map');
     }).catch(err => console.error('error creating user', err));
   }
    
@@ -63,7 +58,6 @@ class OpenMatts extends React.Component {
     openMatRequests.getSingleOpenMat(gymid)
     .then((data) => {
       this.setState({openMat:data});
-      console.log(data)
     }).catch(err => console.error('error getting open mats', err));
   }
 
@@ -111,29 +105,13 @@ class OpenMatts extends React.Component {
         </div>
     </div>
     <div class="product-image">
-        <img src="https://github.com/ke4tri/Images/blob/master/Bjj3.jpg?raw=true" alt="Omar Dsoky" />
+        <img src="https://github.com/ke4tri/Images/blob/master/Bjj3_Opacity.png?raw=true" alt="Omar Dsoky" />
         <div class="info">
             <h2>NO OPEN MATS</h2>
         </div>
     </div>
       </div>
-         {/* <div className="">
-            <div className="">
-                <Link to="/home">
-                HOME</Link>
-            </div>
-            <div className="">
-                <Link to="/map">
-                MAP</Link>
-            </div>
-          </div>
-          <div className="">
-            No Open mats
-          </div>
-          <div className="">
-            <Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link>
-       
-          </div> */}
+        
   </div>
        
         
@@ -166,11 +144,11 @@ class OpenMatts extends React.Component {
           </div>
       </div>
       <div class="product-image">
-          <img src="https://github.com/ke4tri/Images/blob/master/Bjj3.jpg?raw=true" alt="Omar Dsoky" />
+          <img src="https://github.com/ke4tri/Images/blob/master/Bjj3_Opacity.png?raw=true" alt="Omar Dsoky" />
           <div class="info">
               <h2>The Description</h2>
               <ul>
-                  <li className="mt-2">{productBuilder}</li>
+                  <p className="mt-2">{productBuilder}</p>
               </ul>
           </div>
       </div>

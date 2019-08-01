@@ -62,9 +62,7 @@ class GymForm extends React.Component {
   lngChange = e => this.formFieldNumberState('lng', e);
 
   onSubmit = (newGym) => {
-    console.log(newGym);
     gymRequests.createGym(newGym).then((result) => {
-      console.log(result);
       this.props.history.push('/map');
     }).catch(err => console.error('error creating gym', err));
   }

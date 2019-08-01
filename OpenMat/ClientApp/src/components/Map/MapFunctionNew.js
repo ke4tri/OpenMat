@@ -5,26 +5,14 @@ import googleApi from "../../helpers/mapsApi"
 import { Link } from "react-router-dom";
 import './Map.css';
 
-const getGymJson = () => {
-  gymRequests.getAllGyms()
-    .then((data) => {
-      console.log(data);
-      this.setState({gyms:data});
-    }).catch(err => console.error('error getting gyms', err));
-  }
-
-
 function Map() {
   state ={
     gyms: []
   }
 
-
-  
-
-    componentDidMount = () => {
-      this.getGymJson();
-    }
+  componentDidMount = () => {
+    this.getGymJson();
+  }
   
   return (
     <GoogleMap 

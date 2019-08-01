@@ -13,11 +13,8 @@ const getAllGyms = () => new Promise((resolve, reject) => {
     });
 });
 
-
 const createGym = gymObject => axios.post(`${apiUrl}`, (gymObject));
 
-// const createGym = gymObject => axios.post(`${apiUrl}/${gymId}`, (gymObject));
-// May need to change the gymId names below
 const deleteGym = gymId => axios.delete(`${apiUrl}/${gymId}`);
 
 export default {
