@@ -1,5 +1,4 @@
 import React from 'react';import MapFunction from '../../components/Map/MapFunction'
-//import openMatRequests from '../../helpers/data/openMatRequests';
 import user2Requests from '../../helpers/data/user2Requests';
 import AttendingUsers from '../AttendingUsers/AttendingUsers';
 import { Link } from "react-router-dom";
@@ -13,7 +12,6 @@ const defaultForm = {
   competitor: '',
   gymid: 0 ,
   openmatid: 0
-
 }
 
 class UserForm extends React.Component {
@@ -46,9 +44,7 @@ class UserForm extends React.Component {
  
 
   onSubmit = (newUser) => {
-   console.log(newUser);
    user2Requests.createUser(newUser).then((result) => {
-     console.log(result);
      this.props.history.push('/map');
    }).catch(err => console.error('error creating user', err));
  }
@@ -65,25 +61,18 @@ class UserForm extends React.Component {
   };
 
   getAttendingUsers = () => {
-     //Think gymid is actually the openmatId
    const gymid = this.props.location.state.combinedProps[1].id;
-   // const gymid = this.state.selectedGymInfo.id
   user2Requests.getOMUsers(gymid)
   .then((data) => {
     this.setState({omUsers:data});
-    console.log(data)
   }).catch(err => console.error('error getting attending users', err));
-
 }
-
 
   reSetState = () => {
      const propState = this.props.location.state.combinedProps;
      this.setState({openMatDate: propState[0]});
      this.setState({selectedGymInfo: propState[1]});
      this.setState({openMatId: propState[2]});
-   //   this.getAttendingUsers();
-     
     };
 
   
@@ -110,9 +99,28 @@ class UserForm extends React.Component {
 
     return (
        <div> 
-          <div>Attending this Open Mat</div>
-          <div>{attendingBuilder}</div>
-      <div className=" d-flex wrapFormDiv card p-5 mx-auto">
+         {/* /////////table below//////// */}
+<div className="well form-horizontal tableDiv mx-auto">
+         <table class="table table-striped table-dark">
+            <thead>
+              <tr>
+                  <th scope="col">ATTENDING</th>
+               </tr>
+               <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Belt</th>
+                  <th scope="col">Affiliation</th>
+               </tr>
+            </thead>
+            <tbody>
+            {attendingBuilder}
+            </tbody>
+         </table>
+         </div>
+         {/* /////////table above//////// */}
+      <div className=" d-flex userFormDiv card p-5 mx-auto">
            <div>
             <Link to="/map" className="test">MAP</Link>
           </div>
@@ -144,7 +152,6 @@ class UserForm extends React.Component {
                        </div>
                     </div>
                  </div>
-                 {/* <!-- Text input--> */}
                  <div className="form-group">
                     <label className="col-md-2 control-label"></label> 
                     <div className="col-md-8 inputGroupContainer">
@@ -209,7 +216,6 @@ class UserForm extends React.Component {
                        </div>
                     </div>
                  </div>
-               
                  <div className="form-group">
                     <label className="col-md-5 control-label"></label>
                     <div className="col-md-4"><button type="submit" className="btn btn-warning" >Submit</button></div>

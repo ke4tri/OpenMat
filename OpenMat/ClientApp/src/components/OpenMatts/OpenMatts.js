@@ -35,17 +35,12 @@ class OpenMatts extends React.Component {
   getOMUsers = () => {
     const selectedGymId = this.props.location.state.passingGym.id;
     user2Requests.getOMUsers(selectedGymId).then((result) => {
-      console.log(result);
     }).catch(err => console.error('error creating user', err));
   }
 
   onSubmit = (newUser) => {
-    console.log(newUser);
     userRequests.createUser(newUser).then((result) => {
-      console.log(result);
       this.getOMUsers();
-      //Call function that displays people at this openmat
-      // this.props.history.push('/map');
     }).catch(err => console.error('error creating user', err));
   }
    
@@ -63,7 +58,6 @@ class OpenMatts extends React.Component {
     openMatRequests.getSingleOpenMat(gymid)
     .then((data) => {
       this.setState({openMat:data});
-      console.log(data)
     }).catch(err => console.error('error getting open mats', err));
   }
 
@@ -87,29 +81,79 @@ class OpenMatts extends React.Component {
     if(opState && !opState.length) {
       return (
         <div>
-          <div><Link to="/home">HOME</Link></div>
-           <div><Link to="/map">MAP</Link></div>
-        <div>
-         No Open mats
+<div id="container">
+    <div class="product-details">
+        <div className="butDiv">
+            <h1>Join Open Mat</h1>
+            <div>
+                <button className="btn mt-4 p-3">
+                    <Link to="/home">HOME</Link>
+                </button>
+            </div>
+            <div>
+                <button className="btn mt-4 p-3">
+                    <Link to="/map">MAP</Link>
+                </button>
+            </div>
         </div>
-        <div>
-        <Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link>
-
-          {/* <Link to="/addOpenMat">Add An Open Mat</Link> */}
+        <div class="control">
+            <button class="btn">
+                <span class="price">?</span>
+                <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"><Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link></i></span>
+                <span class="buy">Dont See an Open Mat?</span>
+            </button>
         </div>
+    </div>
+    <div class="product-image">
+        <img src="https://github.com/ke4tri/Images/blob/master/Bjj3_Opacity.png?raw=true" alt="Omar Dsoky" />
+        <div class="info">
+            <h2>NO OPEN MATS</h2>
         </div>
+    </div>
+      </div>
+        
+  </div>
+       
+        
       )
     }
 
     return (
-       <div> 
-         <div><Link to="/home">HOME</Link></div>
-         <div><Link to="/map">MAP</Link></div>
-
-          <div>{productBuilder} </div>
-          {/* <div><Link to="/userform">Join Open Matt</Link></div> */}
-          
-       </div>
+<div>
+  <div id="container">
+      <div class="product-details">
+          <div className="butDiv">
+              <h1>Join Open Mat</h1>
+              <div>
+                  <button className="btn mt-4 p-3">
+                      <Link to="/home">HOME</Link>
+                  </button>
+              </div>
+              <div>
+                  <button className="btn mt-4 p-3">
+                      <Link to="/map">MAP</Link>
+                  </button>
+              </div>
+          </div>
+          <div class="control">
+              <button class="btn">
+                  <span class="price">?</span>
+                  <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"><Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link></i></span>
+                  <span class="buy">Dont See an Open Mat?</span>
+              </button>
+          </div>
+      </div>
+      <div class="product-image">
+          <img src="https://github.com/ke4tri/Images/blob/master/Bjj3_Opacity.png?raw=true" alt="Omar Dsoky" />
+          <div class="info">
+              <h2>The Description</h2>
+              <ul>
+                  <p className="mt-2">{productBuilder}</p>
+              </ul>
+          </div>
+      </div>
+  </div>
+</div>
     );
   }
 }

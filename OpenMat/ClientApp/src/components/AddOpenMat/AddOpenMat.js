@@ -6,15 +6,12 @@ import './AddOpenMat.css';
 const defaultForm = {
   date:'',
   gymid: 0 
-
 }
-
 
 class AddOpenMat extends React.Component {
   state = {
     newUser: defaultForm
   }
-
 
   formFieldDateState = (name, e) => {
     const tempUser = { ...this.state.newUser };
@@ -24,15 +21,9 @@ class AddOpenMat extends React.Component {
 
   dateChange = e => this.formFieldDateState('date', e);
 
-
   onSubmit = (newUser) => {
-    // const selectedGym = this.props.location.state.selectedGym.id
-    console.log(newUser);
     openMatRequests.createOpenMat(newUser).then((result) => {
-      console.log(result);
-      // this.getOMUsers();
-      //Call function that displays people ON TOP openmat
-      // this.props.history.push('/map');
+      this.props.history.push('/map');
     }).catch(err => console.error('error creating user', err));
   }
 
@@ -82,9 +73,6 @@ class AddOpenMat extends React.Component {
                        </div>
                     </div>
                  </div>
-                 {/* <!-- Text input--> */}
-                 
-                
                  <div className="form-group">
                     <label className="col-md-5 control-label"></label>
                     <div className="col-md-4"><button type="submit" className="btn btn-warning" >Submit</button></div>
