@@ -45,7 +45,8 @@ class UserForm extends React.Component {
 
   onSubmit = (newUser) => {
    user2Requests.createUser(newUser).then((result) => {
-     this.props.history.push('/map');
+   // this.props.history.push('/openmatts');
+   this.forceUpdate();
    }).catch(err => console.error('error creating user', err));
  }
    

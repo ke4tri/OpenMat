@@ -82,31 +82,31 @@ class OpenMatts extends React.Component {
       return (
         <div>
 <div id="container">
-    <div class="product-details">
+    <div className="product-details">
         <div className="butDiv">
             <h1>Join Open Mat</h1>
             <div>
-                <button className="btn mt-4 p-3">
+                <button className="btn mt-4 buttonPad">
                     <Link to="/home">HOME</Link>
                 </button>
             </div>
             <div>
-                <button className="btn mt-4 p-3">
+                <button className="btn mt-4 buttonPad2">
                     <Link to="/map">MAP</Link>
                 </button>
             </div>
         </div>
-        <div class="control">
-            <button class="btn">
-                <span class="price">?</span>
-                <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"><Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link></i></span>
-                <span class="buy">Dont See an Open Mat?</span>
+        <div className="control">
+            <button className="btn">
+                <span className="price">?</span>
+                <span className="shopping-cart"><i className="fa fa-shopping-cart" aria-hidden="true"><Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link></i></span>
+                <span className="buy">Dont See an Open Mat?</span>
             </button>
         </div>
     </div>
-    <div class="product-image">
+    <div className="product-image">
         <img src="https://github.com/ke4tri/Images/blob/master/Bjj3_Opacity.png?raw=true" alt="Omar Dsoky" />
-        <div class="info">
+        <div className="info">
             <h2>NO OPEN MATS</h2>
         </div>
     </div>
@@ -121,25 +121,25 @@ class OpenMatts extends React.Component {
     return (
 <div>
   <div id="container">
-      <div class="product-details">
+      <div className="product-details">
           <div className="butDiv">
               <h1>Join Open Mat</h1>
-              <div>
-                  <button className="btn mt-4 p-3">
+              <div className="buttonWrap">
+                  <button className="btn mt-4 buttonPad">
                       <Link to="/home">HOME</Link>
                   </button>
               </div>
-              <div>
-                  <button className="btn mt-4 p-3">
+              <div className="buttonWrap">
+                  <button className="btn mt-4 buttonPad2">
                       <Link to="/map">MAP</Link>
                   </button>
               </div>
           </div>
-          <div class="control">
-              <button class="btn">
-                  <span class="price">?</span>
-                  <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"><Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link></i></span>
-                  <span class="buy">Dont See an Open Mat?</span>
+          <div className="control">
+              <button className="btn">
+                  <span className="price">?</span>
+                  <span className="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"><Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link></i></span>
+                  <span className="buy">Dont See an Open Mat?</span>
               </button>
           </div>
       </div>
