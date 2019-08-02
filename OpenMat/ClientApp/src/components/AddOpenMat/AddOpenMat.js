@@ -42,10 +42,10 @@ class AddOpenMat extends React.Component {
     return (
       <div className="mapWrap homeImageMap">
          <div className=" d-flex wrapFormDiv card p-5 mx-auto">
-           <div>
+           <div className="textCenter">
             <Link to="/map" className="test">MAP</Link>
           </div>
-          <div>
+          <div className="textCenter">
             <Link to="/home" className="test">HOME</Link>
           </div>    
         <div className="contact-container">
@@ -73,9 +73,8 @@ class AddOpenMat extends React.Component {
                        </div>
                     </div>
                  </div>
-                 <div className="form-group">
-                    <label className="col-md-5 control-label"></label>
-                    <div className="col-md-4"><button type="submit" className="btn btn-warning" >Submit</button></div>
+                 <div className="form-group subButton">
+                    <div className="col-md-4"><button type="submit" className="btn btn-warning p-2" >Submit</button></div>
                  </div>
               </fieldset>
            </form>
