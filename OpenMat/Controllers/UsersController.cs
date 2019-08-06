@@ -38,13 +38,6 @@ namespace OpenMat.Controllers
             return Ok(newUser);
         }
 
-        //[HttpDelete("{ID}")]
-
-        //public ActionResult DeleteUser(int ID)
-        //{
-        //    _userRepository.DeleteUser(ID);
-
-        //    return Ok();
-        //}
+      
     }
 }

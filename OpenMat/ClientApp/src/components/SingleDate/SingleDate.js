@@ -22,8 +22,8 @@ class SingleDate extends React.Component{
 
     render(){
       return(
-        <div className="replace ">
-          <div>{this.props.date}</div>
+        <div className="replace mx-auto">
+          <div className="mx-auto">{this.props.date}</div>
           <div>
 
             {/* <Link to="/userform" render={(props) => <UserForm {...props} title={`Props through render`} />}></Link> */}

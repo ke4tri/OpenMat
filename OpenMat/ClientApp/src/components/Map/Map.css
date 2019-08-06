@@ -22,6 +22,7 @@
 .mapHomeLinks{
   display: flex;
   justify-content: space-around;
+  font-size: 25px;
 }
 
 .mapComp{
