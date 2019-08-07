@@ -83,10 +83,10 @@ class GymForm extends React.Component {
       return (
         <div className=" d-flex wrapFormDiv card p-5 mx-auto">
            <div>
-            <Link to="/about" className="test">ABOUT</Link>
+            <Link to="/about" className="navLink">ABOUT</Link>
           </div>
           <div>
-            <Link to="/home" className="test">HOME</Link>
+            <Link to="/home" className="navLink">HOME</Link>
           </div>    
         <div className="contact-container">
            <form className="well form-horizontal" onSubmit={this.formSubmit} action=" " method="post"  id="contact_form">
@@ -100,7 +100,7 @@ class GymForm extends React.Component {
                     <label className="col-md-4 control-label">Name</label>  
                     <div className="col-md-8 inputGroupContainer">
                        <div className="input-group">
-                          <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
+                          <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
                           <input 
                            name="name" 
                            placeholder="Gym Name" 
@@ -118,7 +118,7 @@ class GymForm extends React.Component {
                     <label className="col-md-4 control-label">Phone</label> 
                     <div className="col-md-8 inputGroupContainer">
                        <div className="input-group">
-                          <span className="input-group-addon"><i className="glyphicon glyphicon-user"></i></span>
+                          <span className="input-group-addon"><i className="glyphicon glyphicon-phone-alt"></i></span>
                           <input 
                           name="phone" 
                           placeholder="1234567890" 
@@ -134,7 +134,7 @@ class GymForm extends React.Component {
                     <label className="col-md-4 control-label">Affiliation</label> 
                     <div className="col-md-8 inputGroupContainer">
                        <div className="input-group">
-                          <span className="input-group-addon"><i className="glyphicon glyphicon-phone-alt"></i></span>
+                          <span className="input-group-addon"><i className="glyphicon glyphicon-briefcase "></i></span>
                           <input 
                           name="affiliation" 
                           placeholder="Affiliation" 
@@ -182,7 +182,7 @@ class GymForm extends React.Component {
                     <label className="col-md-4 control-label">City</label> 
                     <div className="col-md-8 inputGroupContainer">
                        <div className="input-group">
-                          <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
+                          <span className="input-group-addon"><i className="glyphicon glyphicon-th-list"></i></span>
                           <input 
                           name="city" 
                           placeholder="City" 
@@ -198,7 +198,7 @@ class GymForm extends React.Component {
                     <label className="col-md-4 control-label">State</label> 
                     <div className="col-md-8 inputGroupContainer">
                        <div className="input-group">
-                          <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
+                          <span className="input-group-addon"><i className="glyphicon glyphicon-th-list"></i></span>
                           <input 
                           name="state" 
                           placeholder="State" 
@@ -214,7 +214,7 @@ class GymForm extends React.Component {
                     <label className="col-md-4 control-label">Zipcode </label> 
                     <div className="col-md-8 inputGroupContainer">
                        <div className="input-group">
-                          <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
+                          <span className="input-group-addon"><i className="glyphicon glyphicon-th-list"></i></span>
                           <input 
                           name="zipcode" 
                           placeholder="Zipcode" 
@@ -234,7 +234,7 @@ class GymForm extends React.Component {
                     <label className="col-md-4 control-label">Lat </label> 
                     <div className="col-md-8 inputGroupContainer">
                        <div className="input-group">
-                          <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
+                          <span className="input-group-addon"><i className="glyphicon glyphicon-globe"></i></span>
                           <input 
                           name="text" 
                           placeholder="00.0000" 
@@ -250,7 +250,7 @@ class GymForm extends React.Component {
                     <label className="col-md-4 control-label">Lng</label> 
                     <div className="col-md-8 inputGroupContainer">
                        <div className="input-group">
-                          <span className="input-group-addon"><i className="glyphicon glyphicon-home"></i></span>
+                          <span className="input-group-addon"><i className="glyphicon glyphicon-globe"></i></span>
                           <input 
                           name="lat" 
                           placeholder="-00.0000" 
@@ -264,7 +264,9 @@ class GymForm extends React.Component {
                  </div>
                  <div className="form-group">
                     <label className="col-md-5 control-label"></label>
-                    <div className="col-md-4"><button type="submit" className="btn btn-warning" >Submit</button></div>
+                    <div className="col-md-4">
+                       <button type="submit" className="btn btn-warning p-3">Submit</button>
+                    </div>
                  </div>
               </fieldset>
            </form>

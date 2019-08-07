@@ -138,18 +138,19 @@ class OpenMatts extends React.Component {
           <div className="control">
               <button className="btn">
                   <span className="price">?</span>
-                  <span className="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"><Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link></i></span>
+                  <span className="shopping-cart"><i className="fa fa-shopping-cart" aria-hidden="true"><Link to={{ pathname: '/addOpenMat',state: { selectedGym: this.props.location.state.passingGym}}}>Add an Open Mat</Link></i></span>
                   <span className="buy">Dont See an Open Mat?</span>
               </button>
           </div>
       </div>
-      <div class="product-image">
+      <div className="product-image">
+          <div className="imgOverlay ">Hover For Open Mats</div>
           <img src="https://github.com/ke4tri/Images/blob/master/Bjj3_Opacity.png?raw=true" alt="Omar Dsoky" />
-          <div class="info">
-              <h2>The Description</h2>
-              <ul>
-                  <p className="mt-2">{productBuilder}</p>
-              </ul>
+          <div className="info">
+              {/* <h2>This Open Mat</h2> */}
+              <div className="centerOM">
+                  <div className="mt-2">{productBuilder}</div>
+              </div>
           </div>
       </div>
   </div>

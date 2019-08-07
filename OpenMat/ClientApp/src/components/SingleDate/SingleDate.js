@@ -22,13 +22,10 @@ class SingleDate extends React.Component{
 
     render(){
       return(
-        <div className="replace ">
-          <div>{this.props.date}</div>
+        <div className="singleWrapper">
+          <div className="singleDiv ">{this.props.date}</div>
           <div>
-
-            {/* <Link to="/userform" render={(props) => <UserForm {...props} title={`Props through render`} />}></Link> */}
-
-            <Link to={{ pathname: '/userform',state: { combinedProps: this.state.combinedState }}}>Join This Open Mat</Link>
+            <Link to={{ pathname: '/userform',state: { combinedProps: this.state.combinedState }}} className="singleDiv ml-4">Join This Open Mat</Link>
           </div>
         </div>
        

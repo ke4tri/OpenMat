@@ -16,7 +16,7 @@ function Map() {
   
   return (
     <GoogleMap 
-      defaultZoom={8} 
+      defaultZoom={9} 
       defaultCenter={{ lat: 35.517490, lng: -86.580444 }}
       >
       {this.state.gyms.map(gym => (

@@ -17,7 +17,6 @@ namespace OpenMat.Models
         public string Zipcode { get; set; }
         public float lat { get; set; }
         public float lng { get; set; }
-        //public string Day { get; set; }
-        //public string Time { get; set; }
+    
     }
 }

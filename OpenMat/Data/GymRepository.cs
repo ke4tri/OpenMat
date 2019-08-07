@@ -85,10 +85,6 @@ namespace OpenMat.Data
             {
                 var rowsAffected = db.Execute("DELETE FROM OpenMatt WHERE Date < GETDATE()");
 
-            //    if (rowsAffected != 1)
-            //    {
-            //        throw new Exception("Issue with Del Open Mat");
-            //    }
             }
         }
 

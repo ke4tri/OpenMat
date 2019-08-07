@@ -1,4 +1,4 @@
-import React from 'react';import MapFunction from '../../components/Map/MapFunction'
+import React from 'react';
 import user2Requests from '../../helpers/data/user2Requests';
 import AttendingUsers from '../AttendingUsers/AttendingUsers';
 import { Link } from "react-router-dom";
@@ -42,11 +42,21 @@ class UserForm extends React.Component {
   affiliationChange = e => this.formFieldStringState('affiliation', e);
   competitorChange = e => this.formFieldStringState('competitor', e);
  
+  getAttendingUsers = () => {
+   const gymid = this.props.location.state.combinedProps[1].id;
+  user2Requests.getOMUsers(gymid)
+  .then((data) => {
+    this.setState({omUsers:data});
+  }).catch(err => console.error('error getting attending users', err));
+}
 
   onSubmit = (newUser) => {
    user2Requests.createUser(newUser).then((result) => {
    // this.props.history.push('/openmatts');
-   this.forceUpdate();
+   // const newOmUsers = {...this.state.omUsers};
+   // this.setState({omUsers: newOmUsers})
+   // this.forceUpdate();
+   this.getAttendingUsers();
    }).catch(err => console.error('error creating user', err));
  }
    
@@ -61,13 +71,7 @@ class UserForm extends React.Component {
     });
   };
 
-  getAttendingUsers = () => {
-   const gymid = this.props.location.state.combinedProps[1].id;
-  user2Requests.getOMUsers(gymid)
-  .then((data) => {
-    this.setState({omUsers:data});
-  }).catch(err => console.error('error getting attending users', err));
-}
+
 
   reSetState = () => {
      const propState = this.props.location.state.combinedProps;
@@ -123,10 +127,10 @@ class UserForm extends React.Component {
          {/* /////////table above//////// */}
       <div className=" d-flex userFormDiv card p-5 mx-auto">
            <div>
-            <Link to="/map" className="test">MAP</Link>
+            <Link to="/map" className="navLink">MAP</Link>
           </div>
           <div>
-            <Link to="/home" className="test">HOME</Link>
+            <Link to="/home" className="navLink">HOME</Link>
           </div>    
         <div className="contact-container">
            <form className="well form-horizontal" onSubmit={this.formSubmit} action=" " method="post"  id="contact_form">
@@ -219,7 +223,7 @@ class UserForm extends React.Component {
                  </div>
                  <div className="form-group">
                     <label className="col-md-5 control-label"></label>
-                    <div className="col-md-4"><button type="submit" className="btn btn-warning" >Submit</button></div>
+                    <div className="col-md-4"><button type="submit" className="btn btn-warning p-3" >Submit</button></div>
                  </div>
               </fieldset>
            </form>

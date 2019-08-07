@@ -30,14 +30,6 @@ namespace OpenMat.Controllers
         }
 
 
-        //[HttpGet("{gymid}")]
-
-        //public ActionResult<int> GetAll(gymid)
-        //{
-        //    var user = _user2Repository.GetAllUsers(gymid);
-
-        //    return Ok(user);
-        //}
 
         [HttpGet("{gymId}")]
         public ActionResult GetCustomerPayments(int gymId)

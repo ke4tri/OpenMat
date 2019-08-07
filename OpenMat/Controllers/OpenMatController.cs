@@ -46,13 +46,6 @@ namespace OpenMat.Controllers
             return Ok(newUser);
         }
 
-        //[HttpGet]
-
-        //public ActionResult GetSingleOpenMat()
-        //{
-        //    var gyms = _openMatRepository.GetSingleOpenMats();
-
-        //    return Ok(gyms);
-        //}
+      
     }
 }

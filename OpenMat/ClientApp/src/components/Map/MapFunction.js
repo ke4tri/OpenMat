@@ -26,7 +26,7 @@ class MapFunction extends React.Component {
   render() {
   return (
     <GoogleMap 
-      defaultZoom={8} 
+      defaultZoom={9} 
       defaultCenter={{ lat: 36.180467, lng: -86.794887 }}
       defaultOptions={{ styles: mapStyles }}
       >
