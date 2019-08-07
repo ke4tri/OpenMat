@@ -9,7 +9,7 @@ Given the context of the function of the app above, this app is derived from fun
 This build is functional locally with both front and backend.  I am exploring more deployable options and may transition the backend to mongoDB and expressJS
  
 ## Screenshots
-Include logo/demo screenshot etc.
+
 ![](https://github.com/ke4tri/Images/blob/master/Open_Home.JPG?raw=true)
 
 ![](https://github.com/ke4tri/Images/blob/master/Open_Map.JPG?raw=true)
