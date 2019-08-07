@@ -8,7 +8,7 @@ class YouTubeComp extends React.Component {
       height: '548',
       width: '900',
       playerVars: {//https://developers.google.com/youtube/player_parameters
-        autoplay: 1
+        autoplay: 0
       }
     };
  
