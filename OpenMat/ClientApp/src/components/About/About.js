@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import YouTubeComp from "../YouTubeComp/YouTubeComp"
 import './About.css';
-
 
 class About extends React.Component {
 
@@ -9,15 +9,13 @@ class About extends React.Component {
     
     return (
       <div className="aboutWrap homeImageAbout">
-      <div className="aboutLink">
-
+      <div className="">
         <div className="aboutLinks">
          <div className="aboutLink"><Link to="/">HOME</Link></div> 
          <div className="aboutLink"><Link to="/map">MAP</Link></div>        
         </div> 
-
         <div className='aboutComp'>
-          <h1>This is ABOUT</h1>
+          <div className='video'><YouTubeComp /></div>
         </div>
       </div>
     </div>

@@ -144,11 +144,11 @@ class OpenMatts extends React.Component {
           </div>
       </div>
       <div className="product-image">
-          <div className="imgOverlay ">Test</div>
+          <div className="imgOverlay ">Hover For Open Mats</div>
           <img src="https://github.com/ke4tri/Images/blob/master/Bjj3_Opacity.png?raw=true" alt="Omar Dsoky" />
           <div className="info">
-              <h2>The Description</h2>
-              <div className="ml-3">
+              {/* <h2>This Open Mat</h2> */}
+              <div className="centerOM">
                   <div className="mt-2">{productBuilder}</div>
               </div>
           </div>
